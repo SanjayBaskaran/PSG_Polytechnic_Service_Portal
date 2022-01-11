@@ -10,6 +10,13 @@ import { StudentNavComponent } from './student/student-nav/student-nav.component
 import { StudentProfileComponent } from './student/student-profile/student-profile.component';
 import { BonafideComponent } from './student/bonafide/bonafide.component';
 import { ResponsesComponent } from './student/responses/responses.component';
+import { TeacherComponent } from './teacher/teacher.component';
+import { TeacherNavComponent } from './teacher/teacher-nav/teacher-nav.component';
+import { RequestComponent } from './teacher/request/request.component';
+import { PendingComponent } from './teacher/request/pending/pending.component';
+import { HistoryComponent } from './teacher/request/history/history.component';
+import { StudentBioComponent } from './teacher/student-bio/student-bio.component';
+import { StudentDetailsComponent } from './teacher/student_bio/student-details/student-details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +27,14 @@ import { ResponsesComponent } from './student/responses/responses.component';
     StudentNavComponent,
     StudentProfileComponent,
     BonafideComponent,
-    ResponsesComponent
+    ResponsesComponent,
+    TeacherComponent,
+    TeacherNavComponent,
+    RequestComponent,
+    PendingComponent,
+    HistoryComponent,
+    StudentBioComponent,
+    StudentDetailsComponent
   ],
   imports: [
     BrowserModule,
