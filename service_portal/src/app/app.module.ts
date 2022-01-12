@@ -17,10 +17,9 @@ import { PendingComponent } from './teacher/request/pending/pending.component';
 import { HistoryComponent } from './teacher/request/history/history.component';
 import { StudentBioComponent } from './teacher/student-bio/student-bio.component';
 import { StudentDetailsComponent } from './teacher/student_bio/student-details/student-details.component';
-<<<<<<< HEAD
-=======
+
 import { RouterModule, Routes } from '@angular/router';
->>>>>>> 15d1a1ff50917fa18f0d14b461f2df6c4be099f5
+
 import { StudentComponent } from './student/student.component';
 
 @NgModule({
