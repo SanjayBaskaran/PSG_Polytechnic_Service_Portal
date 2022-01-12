@@ -7,6 +7,10 @@ import { BonafideComponent } from './student/bonafide/bonafide.component';
 import { ResponsesComponent } from './student/responses/responses.component';
 import { StudentProfileComponent } from './student/student-profile/student-profile.component';
 import { StudentComponent } from './student/student.component';
+import { HistoryComponent } from './teacher/request/history/history.component';
+import { PendingComponent } from './teacher/request/pending/pending.component';
+import { RequestComponent } from './teacher/request/request.component';
+import { StudentBioComponent } from './teacher/student-bio/student-bio.component';
 import { TeacherComponent } from './teacher/teacher.component';
 
 const routes: Routes = [
@@ -28,7 +32,13 @@ const routes: Routes = [
     ]
   },
   {
-    path:'teacher',component:TeacherComponent
+    path:'teacher',component:TeacherComponent, children:[
+      {path:'',component:RequestComponent,children:[
+        {path:'',component:PendingComponent},
+        {path:'history',component:HistoryComponent} ]
+      },
+      {path:'studentbio',component:StudentBioComponent}
+    ]
   }
 ]
 
