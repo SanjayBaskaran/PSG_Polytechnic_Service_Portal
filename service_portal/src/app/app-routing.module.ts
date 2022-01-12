@@ -4,11 +4,20 @@ import { LoginComponent } from './login/login.component';
 import { StudentLoginComponent } from './login/student-login/student-login.component';
 import { TeacherLoginComponent } from './login/teacher-login/teacher-login.component';
 import { StudentComponent } from './student/student.component';
+import { TeacherComponent } from './teacher/teacher.component';
 
 const routes: Routes = [
-  { path:'',component:LoginComponent},
-  {path:'/login/student',component:StudentLoginComponent},
-  {path:'/login/teacher',component:TeacherLoginComponent},
+  { path:'login',component:LoginComponent,children:[
+      { path:'',component:StudentLoginComponent},
+      { path:'teacher',component:TeacherLoginComponent}
+    ]
+  },
+  {
+    path: 'student',component:StudentComponent
+  },
+  {
+    path:'teacher',component:TeacherComponent
+  }
 ]
 
 @NgModule({
