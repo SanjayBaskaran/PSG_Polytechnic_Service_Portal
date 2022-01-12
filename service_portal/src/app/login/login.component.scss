@@ -1,0 +1,26 @@
+.body{
+    background-color: #058ed9;
+    width: 100vw;
+    height: 100vh;
+    margin: 0%;
+    border: 0%;
+    .container{
+        width: 50vw;
+        height: 50vh;
+        background-color: white;
+        border-radius: 5%;
+        position: absolute;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        .logo{
+            img{
+                width: 100px;
+                height: auto;
+            }
+        }
+        .content{
+
+        }
+    }
+}

@@ -17,15 +17,13 @@ import { PendingComponent } from './teacher/request/pending/pending.component';
 import { HistoryComponent } from './teacher/request/history/history.component';
 import { StudentBioComponent } from './teacher/student-bio/student-bio.component';
 import { StudentDetailsComponent } from './teacher/student_bio/student-details/student-details.component';
-import { RouterModule, Routes } from '@angular/router';
+import { StudentComponent } from './student/student.component';
 
-// const routes: Routes = [
-//   { path:'',component:LoginComponent},
-// ]
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    StudentComponent,
     StudentLoginComponent,
     TeacherLoginComponent,
     StudentNavComponent,
@@ -46,6 +44,6 @@ import { RouterModule, Routes } from '@angular/router';
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,]
 })
 export class AppModule { }

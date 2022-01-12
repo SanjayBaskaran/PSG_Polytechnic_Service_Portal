@@ -1,4 +1,17 @@
-<div>
-    Login
-    <router-outlet></router-outlet>
+<div class="body">
+    <div class="container">
+        <div class="logo">
+            <img src="assets/logo.png" alt="">
+        </div>
+        <div class="content">
+            <div class="nav">
+                <ul>
+                    <li><a routerLink="/login">Student</a></li>
+                    <li><a routerLink="teacher">Teacher</a></li>
+                </ul>
+            </div>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    
 </div>
