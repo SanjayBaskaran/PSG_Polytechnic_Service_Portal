@@ -1,18 +1,71 @@
 <div class="snav">
-    <div class="image">
-        <img src="assets/profileicon.png" alt=""><br>
-        <span>samplename</span>
+    <div class="thumbnail">
+        <div class="image">
+            <img src="assets/profileicon.png" alt="">
+            <div class="text">samplename</div>
+        </div>
     </div>
-        <ul>
-            <li><a routerLink="student">PROFILE</a></li>
-            <li><a routerLink="">SERVICES</a>
+    <div class="nav">
+        <ul class="root">
+            <li>
+                <a routerLink="/student" routerLinkActive="active_tab" [routerLinkActiveOptions]="{exact:true}">
+                    <div>
+                        <img src="./../../../assets/icons/profile.png" alt="">
+                    </div>
+                    
+                    <div>
+                        PROFILE
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <div>
+                        <img src="./../../../assets/icons/service.png" alt="">
+                    </div>
+                    
+                    <div>
+                        SERVICES
+                    </div>
+                </a>
+            </li>
             <ul>
-                <li> <a routerLink="bonafide">BONAFIDE</a></li>
-            </ul></li>
-            <li><a routerLink="responses">RESPONSES</a></li>
-            <li><a routerLink="/login">LOGOUT</a></li>
+                <li>
+                    <a routerLink="bonafide" routerLinkActive="active_tab">
+                        <div>
+                            <img src="./../../../assets/icons/bonafide.png" alt="">
+                        </div>
+                        
+                        <div>
+                            BONAFIDE
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <li>
+                <a routerLink="responses" routerLinkActive="active_tab">
+                    <div>
+                        <img src="./../../../assets/icons/response.png" alt="">
+                    </div>
+                    
+                    <div>
+                    RESPONSES
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/login">
+                    <div>
+                        <img src="./../../../assets/icons/logout.png" alt="">
+                    </div>
+                    
+                    <div>
+                        LOGOUT
+                    </div>
+                </a>
+            </li>
         
         </ul>
-    
     </div>
+</div>
 
