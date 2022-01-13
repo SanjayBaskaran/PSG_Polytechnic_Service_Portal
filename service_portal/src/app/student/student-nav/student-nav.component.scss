@@ -2,11 +2,31 @@
     background-color:#0589ED;
     height:100vh;
     width: 20vw;
+    overflow:hidden;
+    color:white;
+    font-size:1rem ;
+    li{
+        padding:2%;
+         a{
+                color:white;
+                 margin: 4%;
+          }
     }
-    li a{
-        display:block;
-        width:60vw;
+    .image{
+        text-align: center;
+        padding-top: 5%;
+
+    img{
+        height:25%;
+        width:25%;
         
     }
+    span{
+        font-size:1.5rem;
+    }
+    }   
+
+    }
+
 
 
