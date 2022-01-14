@@ -1,2 +1,13 @@
-<p>request works!</p>
+<div class="tabs">
+  <nav>
+    <a
+      routerLink="/teacher"
+      routerLinkActive="active_tab"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >PENDING</a
+    >
+    <a routerLink="/teacher/history" routerLinkActive="active_tab">HISTORY</a>
+  </nav>
+</div>
+
 <router-outlet> </router-outlet>

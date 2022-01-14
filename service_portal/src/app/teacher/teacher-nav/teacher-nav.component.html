@@ -1,7 +1,53 @@
-<p>teacher-nav works!</p>
-<ul>
-    <li><a routerlink="">REQUEST</a></li>
-   <li><a routerlink="">STUDENT BIO</a></li>
+<!-- <ul>
+     <li><a routerlink="">REQUEST</a></li>
+     <li><a routerlink="">STUDENT BIO</a></li>
      <li><a routerlink="/login">LOGOUT</a></li>
+</ul> -->
+<div class="snav">
+  <div class="thumbnail">
+    <div class="name">
+      <!-- <img src="assets/profileicon.png" alt="" /> -->
+      <div class="text">samplename</div>
+    </div>
+  </div>
+  <div class="nav">
+    <ul class="root">
+      <li>
+        <a
+          routerLink="/teacher"
+          routerLinkActive="active_tab"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <div>
+            <img src="assets/icons/request.png" alt="" />
+          </div>
 
-</ul>
+          <div>
+            <div class="text">REQUEST</div>
+          </div>
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="studentbio" routerLinkActive="active_tab">
+          <div>
+            <img src="assets/icons/group.png" alt="" />
+          </div>
+
+          <div>
+            <div class="text">STUDENT BIO</div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/login">
+          <div>
+            <img src="assets/icons/logout.png" alt="" />
+          </div>
+
+          <div>LOGOUT</div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
