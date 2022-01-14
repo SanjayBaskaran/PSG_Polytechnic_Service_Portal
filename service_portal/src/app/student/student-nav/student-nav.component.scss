@@ -71,12 +71,18 @@
                         width: 3rem;
                         height: 3rem;
                         position: relative;
-                        transform: translateY(30%);
+                        transform: translate(-2%,0%);
                     }
                     div:nth-child(2){
-                        padding: 5%;
-                        height: 50%;
+                        padding: 3%;
+                        height: 30%;
                         transition: .35s;
+                        position: relative;
+                        .text{
+                            position: relative;
+                            top: 50%;
+                            transform: translateY(-50%);
+                        }
                     }
                 }
             }
@@ -91,8 +97,8 @@
         background-color: white;
         color: black;
         z-index: 3;
-        border-top-left-radius: 15%;
-        border-bottom-left-radius: 15%;
+        border-top-left-radius: 30%;
+        border-bottom-left-radius: 30%;
         box-shadow: -100px 0px 14px rgba($color: #032138, $alpha: 0.35);
     }
     div:nth-child(1){
