@@ -6,11 +6,13 @@
         <div class="content">
             <div class="nav">
                 <ul>
-                    <li><a routerLink="/login">Student</a></li>
-                    <li><a routerLink="teacher">Teacher</a></li>
+                    <li><a routerLink="/login" routerLinkActive="active_tab" [routerLinkActiveOptions]="{exact:true}"><div>STUDENT</div></a></li>
+                    <li><a routerLink="teacher" routerLinkActive="active_tab"><div>TEACHER</div></a></li>
                 </ul>
             </div>
-            <router-outlet></router-outlet>
+            <div class="form">
+                <router-outlet></router-outlet>
+            </div>
         </div>
     </div>
     

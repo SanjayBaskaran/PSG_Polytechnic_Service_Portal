@@ -1,0 +1,85 @@
+form{
+    margin-top: 10%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    row-gap: 2.5rem;
+    
+    input[type='submit']{
+        width: auto;
+        padding: 2% 5%;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1.4rem;
+        background-color: #058ed9;
+        border: 0px;
+        color: white;
+        border-radius: 1rem;
+    }
+}
+$primary: #058ed9;
+$white: rgb(0, 0, 0);
+$gray: #004469;
+.form__group.field{
+    width: 90%;
+}
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid $gray;
+  outline: 0;
+  font-size: 1.3rem;
+  color: $white;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+  }
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: $gray;
+}
+
+.form__field:focus {
+  ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: $primary;
+    font-weight:700;    
+  }
+  padding-bottom: 6px;  
+  font-weight: 700;
+  border-width: 3px;
+  border-image-slice: 1;
+}
+/* reset input */
+.form__field{
+  &:required,&:invalid { box-shadow:none; }
+}
+/* demo */

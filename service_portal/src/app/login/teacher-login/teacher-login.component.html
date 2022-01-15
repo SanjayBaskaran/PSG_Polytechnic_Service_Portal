@@ -1,5 +1,13 @@
 <form action="">
-    <input type="text" name="tusername" placeholder="USERNAME">
-    <input type="password" name="tpasswd" placeholder="PASSWORD">
-    <input type="submit" value="Login">
-    </form>
+    <div class="form__group field">
+        <input type="text" class="form__field" placeholder="USERNAME" name="tusername" id='name' required />
+        <label for="name" class="form__label">USERNAME</label>
+      </div>
+      <div class="form__group field">
+        <input type="password" class="form__field" placeholder="PASSWORD" name="tpassword" id="password" required />
+        <label for="password" class="form__label">PASSWORD</label>
+      </div>
+      <div>
+        <input type="submit" value="Login">
+      </div>
+</form>
