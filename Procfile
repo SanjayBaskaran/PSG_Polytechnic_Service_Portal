@@ -1,0 +1,1 @@
+web: node ./service_portal/server.js
