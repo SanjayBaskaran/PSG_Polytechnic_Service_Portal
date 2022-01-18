@@ -2,9 +2,13 @@
   "name": "psg_polytechnic_student_service_portal",
   "version": "1.0.0",
   "description": "",
-  "main": "./service_portal/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "ng": "ng",
+    "start": "node ./service-portal/server.js",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "heroku-postbuild": "ng build --prod"
   },
   "repository": {
     "type": "git",
