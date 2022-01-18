@@ -2,7 +2,7 @@
   "name": "psg_polytechnic_student_service_portal",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./service_portal/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
