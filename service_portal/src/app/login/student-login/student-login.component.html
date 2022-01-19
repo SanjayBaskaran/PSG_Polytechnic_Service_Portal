@@ -1,13 +1,16 @@
-<form action="">
+<form (ngSubmit)= "onSubmit()" #f="ngForm">
     <div class="form__group field">
-        <input type="text" class="form__field" placeholder="USERNAME" name="username" id='name' required />
+        <input type="text" class="form__field" placeholder="USERNAME" name="username" id='name' [ngModel] required/>
+
         <label for="name" class="form__label">USERNAME</label>
       </div>
       <div class="form__group field">
-        <input type="password" class="form__field" placeholder="PASSWORD" name="password" id="password" required />
+        <input type="password" class="form__field" placeholder="PASSWORD" name="password" id="password" [ngModel] required />
         <label for="password" class="form__label">PASSWORD</label>
+
       </div>
+      {{form.value.username}}
       <div>
-        <input type="submit" value="Login">
+        <input type="submit" value="Login" [disabled]="f.value.username == '' || f.value.password == '' "  />
       </div>
 </form>

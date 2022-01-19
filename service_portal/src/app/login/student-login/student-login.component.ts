@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-student-login',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./student-login.component.scss']
 })
 export class StudentLoginComponent implements OnInit {
+  @ViewChild("f") form:any;
 
   constructor() { }
 
   ngOnInit(): void {
+    
   }
+  onSubmit(){
+    console.log(this.form);
+
+}
 
 }

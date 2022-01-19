@@ -21,6 +21,7 @@ import { StudentDetailsComponent } from './teacher/student_bio/student-details/s
 import { RouterModule, Routes } from '@angular/router';
 
 import { StudentComponent } from './student/student.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { StudentComponent } from './student/student.component';
   imports: [
     BrowserModule,
     // RouterModule.forRoot(routes)
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent,]
