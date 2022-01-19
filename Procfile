@@ -1,1 +1,1 @@
-web: node ./service_portal/server.js
+web: node server.js
