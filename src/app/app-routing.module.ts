@@ -19,27 +19,27 @@ const routes: Routes = [
       { path:'teacher',component:TeacherLoginComponent}
     ]
   },
-  // {
-  //   path: 'student',component:StudentComponent,
-  //   children:[
-  //     {path:'',component:StudentProfileComponent},
-  //     {
-  //       path:'bonafide',component:BonafideComponent
-  //     },
-  //     {
-  //       path:'responses',component:ResponsesComponent
-  //     },
-  //   ]
-  // },
-  // {
-  //   path:'teacher',component:TeacherComponent, children:[
-  //     {path:'',component:RequestComponent,children:[
-  //       {path:'',component:PendingComponent},
-  //       {path:'history',component:HistoryComponent} ]
-  //     },
-  //     {path:'studentbio',component:StudentBioComponent}
-  //   ]
-  // }
+  {
+    path: 'student',component:StudentComponent,
+    children:[
+      {path:'',component:StudentProfileComponent},
+      {
+        path:'bonafide',component:BonafideComponent
+      },
+      {
+        path:'responses',component:ResponsesComponent
+      },
+    ]
+  },
+  {
+    path:'teacher',component:TeacherComponent, children:[
+      {path:'',component:RequestComponent,children:[
+        {path:'',component:PendingComponent},
+        {path:'history',component:HistoryComponent} ]
+      },
+      {path:'studentbio',component:StudentBioComponent}
+    ]
+  }
 ]
 
 @NgModule({
