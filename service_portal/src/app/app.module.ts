@@ -1,3 +1,4 @@
+import { AuthService } from './auth.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -22,6 +23,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { StudentComponent } from './student/student.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -46,9 +48,10 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     // RouterModule.forRoot(routes)
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent,]
 })
 export class AppModule { }

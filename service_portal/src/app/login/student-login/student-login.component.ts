@@ -1,3 +1,4 @@
+import { AuthService } from './../../auth.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
@@ -9,15 +10,16 @@ import { NgForm } from '@angular/forms';
 })
 export class StudentLoginComponent implements OnInit {
   @ViewChild("f") form:any;
-
-  constructor() { }
+  data:any;
+  constructor(private auth:AuthService) {
+  }
 
   ngOnInit(): void {
-    
+
   }
   onSubmit(){
     console.log(this.form);
-
-}
-
+    this.data = this.auth.getUserData(this.form.value);
+    console.log(this.data);
+  }
 }

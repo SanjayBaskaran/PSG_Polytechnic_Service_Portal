@@ -1,16 +1,15 @@
 <form (ngSubmit)= "onSubmit()" #f="ngForm">
     <div class="form__group field">
-        <input type="text" class="form__field" placeholder="USERNAME" name="username" id='name' [ngModel] required/>
+        <input type="text" class="form__field" placeholder="USERNAME" name="username" id='name' [ngModel] #user = "ngModel" required/>
 
         <label for="name" class="form__label">USERNAME</label>
       </div>
       <div class="form__group field">
-        <input type="password" class="form__field" placeholder="PASSWORD" name="password" id="password" [ngModel] required />
+        <input type="password" class="form__field" placeholder="PASSWORD" name="password" id="password" [ngModel] #pass= "ngModel" required />
         <label for="password" class="form__label">PASSWORD</label>
 
       </div>
-      {{form.value.username}}
       <div>
-        <input type="submit" value="Login" [disabled]="f.value.username == '' || f.value.password == '' "  />
+        <input type="submit" value="Login" [disabled]="!(pass.dirty&&user.dirty&&pass.valid&&user.valid)"  />
       </div>
 </form>
