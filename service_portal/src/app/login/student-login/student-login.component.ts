@@ -1,6 +1,8 @@
+import { StudentDataService } from './../../student-data.service';
 import { UserDataService } from './../../user-data.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +14,7 @@ import { NgForm } from '@angular/forms';
 export class StudentLoginComponent implements OnInit {
   @ViewChild("f") form:any;
   validCheck:boolean = true;
-  constructor(private getdata:UserDataService) {
+  constructor(private getdata:UserDataService,private router:Router,private studentData:StudentDataService) {
   }
 
   ngOnInit(): void {
@@ -23,8 +25,11 @@ export class StudentLoginComponent implements OnInit {
     this.getdata.getStudent({rno:this.form.value.username,password:this.form.value.password}).subscribe(
       (data)=>{
         console.log(data);
+        this.studentData.studentbio = data;
         console.log("TEST");
         this.validCheck = true;
+        this.router.navigate(['student']);
+
     },
     (error)=>{
       this.validCheck = false;

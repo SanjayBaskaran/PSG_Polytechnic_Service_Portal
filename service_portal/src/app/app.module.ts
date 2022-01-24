@@ -1,3 +1,4 @@
+import { StudentDataService } from './student-data.service';
 import { UserDataService } from './user-data.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -51,7 +52,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [UserDataService],
+  providers: [UserDataService,StudentDataService],
   bootstrap: [AppComponent,]
 })
 export class AppModule { }

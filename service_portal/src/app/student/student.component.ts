@@ -1,3 +1,4 @@
+import { StudentDataService } from './../student-data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./student.component.scss']
 })
 export class StudentComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

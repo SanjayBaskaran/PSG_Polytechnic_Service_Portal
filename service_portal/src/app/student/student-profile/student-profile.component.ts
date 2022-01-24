@@ -1,3 +1,4 @@
+import { StudentDataService } from './../../student-data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./student-profile.component.scss']
 })
 export class StudentProfileComponent implements OnInit {
-
-  constructor() { }
+  studentbio:any;
+  constructor(private student:StudentDataService) { }
 
   ngOnInit(): void {
+    this.studentbio = this.student.getStudentBio();
+    console.log(this.studentbio);
   }
 
 }
