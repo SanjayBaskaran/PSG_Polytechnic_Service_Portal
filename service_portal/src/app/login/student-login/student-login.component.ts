@@ -1,4 +1,4 @@
-import { AuthService } from './../../auth.service';
+import { UserDataService } from './../../user-data.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
@@ -6,12 +6,13 @@ import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-student-login',
   templateUrl: './student-login.component.html',
-  styleUrls: ['./student-login.component.scss']
+  styleUrls: ['./student-login.component.scss'],
+  providers:[UserDataService]
 })
 export class StudentLoginComponent implements OnInit {
   @ViewChild("f") form:any;
-  data:any;
-  constructor(private auth:AuthService) {
+  validCheck:boolean = true;
+  constructor(private getdata:UserDataService) {
   }
 
   ngOnInit(): void {
@@ -19,7 +20,16 @@ export class StudentLoginComponent implements OnInit {
   }
   onSubmit(){
     console.log(this.form);
-    this.data = this.auth.getUserData(this.form.value);
-    console.log(this.data);
+    this.getdata.getStudent({rno:this.form.value.username,password:this.form.value.password}).subscribe(
+      (data)=>{
+        console.log(data);
+        console.log("TEST");
+        this.validCheck = true;
+    },
+    (error)=>{
+      this.validCheck = false;
+      console.log(error);
+    }
+    );
   }
 }
