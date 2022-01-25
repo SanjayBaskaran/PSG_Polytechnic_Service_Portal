@@ -12,4 +12,8 @@ export class UserDataService {
     //console.log(student);
     return this.http.post("http://localhost:3000/test",student);
   }
+
+  verifyToken(){
+    return this.http.get("http://localhost:3000/api/student");
+  }
 }

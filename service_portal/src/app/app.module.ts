@@ -1,3 +1,4 @@
+import { TokenHeaderInterceptorService } from './token-header-interceptor.service';
 import { StudentDataService } from './student-data.service';
 import { UserDataService } from './user-data.service';
 import { NgModule } from '@angular/core';
@@ -24,7 +25,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { StudentComponent } from './student/student.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [UserDataService,StudentDataService],
+  providers: [UserDataService,StudentDataService,{provide:HTTP_INTERCEPTORS,useClass:TokenHeaderInterceptorService,multi:true}],
   bootstrap: [AppComponent,]
 })
 export class AppModule { }

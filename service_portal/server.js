@@ -18,7 +18,7 @@ app.use(cors());
 app.use((req, res, next) => {
   res.setHeader(
     "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
+    "Origin, X-Requested-With, Content-Type, Accept, Authentication"
   );
   res.setHeader(
     "Access-Control-Allow-Methods",
@@ -43,6 +43,20 @@ app.post("/test", (req, res) => {
       res.status(401).json({"message":"Invalid User"});
     }
   });
+});
+app.get("/api/student",(req,res,next)=>{
+  console.log(req.headers);
+  console.log(req.headers.authentication);
+  try{
+    let token = req.headers.authentication;
+    var data = jwt.verify(token,"SECRET_CODE_USER_LOGIN");
+    console.log(data);
+  }catch(error){
+    res.status(401).json({"message":"Auth Failed"});
+  }
+},(req,res)=>{
+  console.log(data);
+  res.json({"valid":"Auth passed"});
 });
 app.listen(3000, (req, res) => {
   console.log("Listening port 3000");

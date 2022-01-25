@@ -23,12 +23,16 @@ export class StudentLoginComponent implements OnInit {
   onSubmit(){
     console.log(this.form);
     this.getdata.getStudent({rno:this.form.value.username,password:this.form.value.password}).subscribe(
-      (data)=>{
-        console.log(data);
-        this.studentData.studentbio = data;
-        console.log("TEST");
-        this.validCheck = true;
-        this.router.navigate(['student']);
+      (datax:any)=>{
+        this.getdata.verifyToken().subscribe(
+          (data)=>{
+            console.log(data);
+            this.studentData.studentbio = data;
+            localStorage.setItem("token",JSON.stringify(datax.token));
+            console.log("TEST",data);
+            this.router.navigate(['student']);
+          }
+        );
 
     },
     (error)=>{
