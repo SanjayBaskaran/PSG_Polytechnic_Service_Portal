@@ -16,4 +16,8 @@ export class UserDataService {
   verifyToken(){
     return this.http.get("http://localhost:3000/api/student");
   }
+
+  logout(){
+    localStorage.removeItem("token");
+  }
 }

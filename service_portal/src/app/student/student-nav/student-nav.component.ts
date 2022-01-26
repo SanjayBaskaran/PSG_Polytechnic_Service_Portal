@@ -1,4 +1,6 @@
+import { UserDataService } from './../../user-data.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-student-nav',
@@ -7,8 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentNavComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private userData:UserDataService,private router:Router) { }
+  logout(){
+    this.userData.logout();
+    this.router.navigate(['/login']);
+  }
   ngOnInit(): void {
   }
 
