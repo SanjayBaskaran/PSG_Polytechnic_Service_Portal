@@ -1,5 +1,5 @@
 import { UserDataService } from './../../user-data.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -10,13 +10,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./student-login.component.scss'],
   providers:[UserDataService]
 })
-export class StudentLoginComponent implements OnInit {
+export class StudentLoginComponent implements OnInit ,OnDestroy,OnChanges{
   @ViewChild("f") form:any;
   validCheck:boolean = true;
   constructor(private getdata:UserDataService,private router:Router,) {
   }
 
   ngOnInit(): void {
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+
+  }
+  ngOnDestroy(): void {
 
   }
   onSubmit(){
@@ -25,6 +30,7 @@ export class StudentLoginComponent implements OnInit {
       (data:any)=>{
           console.log(data);
           localStorage.setItem("token",data.token);
+          this.getdata.isAuth = true;
           this.router.navigate(['student']);
     },
     (error)=>{

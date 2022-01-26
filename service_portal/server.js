@@ -43,12 +43,25 @@ app.post("/test", (req, res) => {
     }
   });
 });
+app.get("/api/authCheck",(req,res)=>{
+  try{
+    let token = req.headers.authentication;
+    console.log(token);
+    var data = jwt.verify(token,"SECRET_CODE_USER_LOGIN");
+    console.log(data);
+    req.userData = data.rno;
+    res.json({"Auth":"User Authenticated"});
+  }catch(error){
+    console.log("Error");
+    res.status(401).json({"message":"Auth Failed"});
+  }
+});
 app.get("/api/student",(req,res,next)=>{
   try{
     let token = req.headers.authentication;
-    // console.log(token);
+    console.log(token);
     var data = jwt.verify(token,"SECRET_CODE_USER_LOGIN");
-    // console.log(data);
+    console.log(data);
     req.userData = data.rno;
     next();
   }catch(error){
@@ -64,7 +77,6 @@ app.get("/api/student",(req,res,next)=>{
     if (result.length > 0){
       res.json(result[0]);
     }else{
-
       res.status(401).json({"message":"Invalid User"});
     }
   });
