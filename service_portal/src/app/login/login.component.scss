@@ -5,11 +5,15 @@
     margin: 0%;
     border: 0%;
     .container{
-        width: 50vw;
-        height: 50vh;
+      @media (max-width:900px) {
+        width: 90vw;
+        height: 90vh;
+        flex-direction: column;
+      }
+        width: 900px;
+        height: 450px;
         background-color: white;
         border-radius: 3rem;
-        padding:2%;
         position: absolute;
         top:50%;
         left: 50%;
@@ -18,10 +22,17 @@
         justify-content: center;
         align-items: center;
         .logo{
-            padding: 2%;
+          @media (max-width:900px) {
+            flex: 2;
+          }
+            padding: 10%;
             flex: 4;
             position: relative;
             img{
+              @media (max-width:900px) {
+                width: 100%;
+                height: auto;
+              }
                 position: absolute;
                 left: 50%;
                 top: 50%;
@@ -31,15 +42,12 @@
             }
         }
         .content{
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content:space-evenly;
+          position: relative;
+          margin-top: 5%;
+            padding: 5%;
             flex: 5;
-            align-self: flex-start;
-            position: relative;
+            align-self: center;
             .nav{
-                position: relative;
                 ul{
                     list-style: none;
                     display: flex;

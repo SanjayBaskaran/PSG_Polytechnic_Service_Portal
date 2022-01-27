@@ -13,11 +13,13 @@ import { Observable } from 'rxjs';
 })
 export class StudentLoginComponent implements OnInit ,OnDestroy,OnChanges{
   @ViewChild("f") form:any;
-  validCheck:boolean = true;
   constructor(private userData:UserDataService,private router:Router,) {
   }
 
   ngOnInit(): void {
+    if(!!this.userData.getToken()){
+      this.router.navigate(["student"]);
+    }
   }
   ngOnChanges(changes: SimpleChanges): void {
 
@@ -30,10 +32,9 @@ export class StudentLoginComponent implements OnInit ,OnDestroy,OnChanges{
       (data:any)=>{
         localStorage.setItem("token",data.token);
         this.router.navigate(["student"]);
-        this.validCheck = true;
       },
       err=>{
-        this.validCheck = false;
+        alert("Invalid username or password");
       }
     );
 
