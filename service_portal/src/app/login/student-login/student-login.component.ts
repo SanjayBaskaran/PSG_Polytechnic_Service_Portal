@@ -20,6 +20,8 @@ export class StudentLoginComponent implements OnInit ,OnDestroy,OnChanges{
     this.userData.authCheck().subscribe(
       data=>{
         this.router.navigate(["/student"]);
+      },err=>{
+        console.log();
       }
     );;
     // if(!!this.userData.getToken()){

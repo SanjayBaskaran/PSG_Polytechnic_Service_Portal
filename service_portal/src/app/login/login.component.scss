@@ -48,11 +48,14 @@
             flex: 5;
             align-self: center;
             .nav{
+                position: relative;
+                width: 100%;
                 ul{
+                    width: 100%;
                     list-style: none;
                     display: flex;
                     flex-direction: row;
-                    justify-content: space-around;
+                    justify-content: space-evenly;
                     align-items: center;
                     li{
                         a{
