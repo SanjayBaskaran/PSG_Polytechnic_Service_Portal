@@ -19,12 +19,12 @@
 //     img{
 //         height:25%;
 //         width:25%;
-        
+
 //     }
 //     span{
 //         font-size:1.5rem;
 //     }
-//     }   
+//     }
 
 //     }
 
@@ -32,14 +32,16 @@
 @import url('http://fonts.cdnfonts.com/css/roboto');
 .snav{
     font-family: 'Roboto', sans-serif;
-    height: 100%;
     position: relative;
     .thumbnail{
-        margin-top: 5%;
         width: 100%;
         position: relative;
         .image{
             img{
+                @media (max-width:800px) {
+                  height: 80px;
+                  width: auto;
+                }
                 height: 175px;
                 width: auto;
                 border-radius: 50%;
@@ -54,27 +56,41 @@
     }
     .nav{
         width: 100%;
-
+        .mobile_view{
+          display: none;
+          @media (max-width:800px) {
+            display: scroll;
+          }
+        }
         .root{
-            position: relative;
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr;
+            @media (max-width:800px) {
+                display: flex;
+            }
             list-style: none;
-            line-height: 4rem;
+            row-gap: 1rem;
+            li:nth-child(2){
+              @media(max-width:800px){display: none;}
+            }
             li{
-                text-align: justify;
-                font-size: 1.8rem;
+                font-size: 1.7rem;
                 a{
                     display: grid;
-                    grid-template-columns: 1fr 3fr;
+                    grid-template-columns: 1fr 4fr;
                     text-decoration: none;
                     color: white;
                     img{
-                        width: 3rem;
-                        height: 3rem;
-                        position: relative;
-                        align-self: center;
+                        width: 2.3rem;
+                        height: 2.3rem;
+                        transition: all 1s;
                     }
                     div:nth-child(2){
-                        padding: 3%;
+                        @media (max-width:800px) {
+                          display: none;
+                        }
+                        padding: 5%;
                         height: 30%;
                         transition: .35s;
                         position: relative;
@@ -93,6 +109,12 @@
     }
 }
 .active_tab{
+    img{
+      @media(max-width:800px) {
+        filter: invert(100%);
+      -webkit-filter: invert(100%);
+      }
+    }
     div:nth-child(2){
         background-color: white;
         color: black;
@@ -100,7 +122,7 @@
         border-top-left-radius: 5rem;
         border-bottom-left-radius: 5rem;
         box-shadow: 0px 0px 1px rgba($color: #032138, $alpha: 0.35),
-                    -120px 5px 5px rgba($color: #032138, $alpha: 0.35);
+                    -70px -2px 5px rgba($color: #032138, $alpha: 0.35);
     }
     div:nth-child(1){
         z-index: 4;

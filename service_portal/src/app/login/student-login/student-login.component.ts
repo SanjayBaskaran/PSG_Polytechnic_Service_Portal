@@ -17,9 +17,14 @@ export class StudentLoginComponent implements OnInit ,OnDestroy,OnChanges{
   }
 
   ngOnInit(): void {
-    if(!!this.userData.getToken()){
-      this.router.navigate(["student"]);
-    }
+    this.userData.authCheck().subscribe(
+      data=>{
+        this.router.navigate(["/student"]);
+      }
+    );;
+    // if(!!this.userData.getToken()){
+    //   this.router.navigate(["student"]);
+    // }
   }
   ngOnChanges(changes: SimpleChanges): void {
 

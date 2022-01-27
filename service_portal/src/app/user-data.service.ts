@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -5,13 +6,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserDataService {
-  constructor(private http:HttpClient) {}
+  constructor(private http:HttpClient,private router:Router) {}
   login(student:{rno:String,password:String}){
     return this.http.post("http://localhost:3000/api/login/student",student);
   }
-
-
-
   getToken(){
     return localStorage.getItem("token");
   }
@@ -21,5 +19,6 @@ export class UserDataService {
   }
   logout(){
     localStorage.removeItem("token");
+    this.router.navigate(["/login"]);
   }
 }
