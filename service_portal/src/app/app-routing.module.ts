@@ -27,10 +27,10 @@ const routes: Routes = [
     children:[
       {path:'',component:StudentProfileComponent},
       {
-        path:'bonafide',component:BonafideComponent
+        path:'bonafide',component:BonafideComponent,canActivate:[AuthGuard]
       },
       {
-        path:'responses',component:ResponsesComponent
+        path:'responses',component:ResponsesComponent,canActivate:[AuthGuard]
       },
     ]
   },
@@ -42,6 +42,9 @@ const routes: Routes = [
       },
       {path:'studentbio',component:StudentBioComponent}
     ]
+  },
+  {
+    path:"**",redirectTo:"/login"
   }
 ]
 

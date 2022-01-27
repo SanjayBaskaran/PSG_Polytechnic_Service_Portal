@@ -2,6 +2,7 @@ import { UserDataService } from './../../user-data.service';
 import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
 export class StudentLoginComponent implements OnInit ,OnDestroy,OnChanges{
   @ViewChild("f") form:any;
   validCheck:boolean = true;
-  constructor(private getdata:UserDataService,private router:Router,) {
+  constructor(private userData:UserDataService,private router:Router,) {
   }
 
   ngOnInit(): void {
@@ -24,19 +25,20 @@ export class StudentLoginComponent implements OnInit ,OnDestroy,OnChanges{
   ngOnDestroy(): void {
 
   }
-  onSubmit(){
-    console.log("TEST");
-    this.getdata.getStudent({rno:this.form.value.username,password:this.form.value.password}).subscribe(
+  login(){
+    this.userData.login({rno:this.form.value.username,password:this.form.value.password}).subscribe(
       (data:any)=>{
-          console.log(data);
-          localStorage.setItem("token",data.token);
-          this.getdata.isAuth = true;
-          this.router.navigate(['student']);
-    },
-    (error)=>{
-      this.validCheck = false;
-      console.log(error);
-    }
+        localStorage.setItem("token",data.token);
+        this.router.navigate(["student"]);
+        this.validCheck = true;
+      },
+      err=>{
+        this.validCheck = false;
+      }
     );
+
+  }
+  onSubmit(){
+    this.login();
   }
 }
