@@ -1,54 +1,55 @@
 <div class="content">
-<table>
-    <tr>
-        <td>Roll No</td>
-        <td>{{studentbio.rno}}</td>
-    </tr>
-    <tr>
-        <td>Student Name</td>
-        <td>{{studentbio.stud_name}}</td>
-    </tr>
-    <tr>
-        <td>Father's Name</td>
-        <td>{{studentbio.father_name}}</td>
-    </tr>
-    <tr>
-        <td>Mother's Name</td>
-        <td>{{studentbio.mother_name}}</td>
-    </tr>
-    <tr>
-        <td>Date of Birth</td>
-        <td>{{studentbio.dob}}</td>
-    </tr>
-    <tr>
-        <td>Gender</td>
-        <td *ngIf="studentbio.gender=='f'">Female</td>
-        <td *ngIf="studentbio.gender=='m'">Male</td>
-    </tr>
-    <tr>
-        <td>Address</td>
-        <td>{{studentbio.stud_address}}</td>
-    </tr>
-    <tr>
-        <td>Phone Number</td>
-        <td>{{studentbio.stud_mobile}}</td>
-    </tr>
-    <tr>
-        <td>E-mail</td>
-        <td>{{studentbio.stud_email}}</td>
-    </tr>
-    <tr>
-        <td>Year of Joining</td>
-        <td>{{studentbio.year_of_joining}}</td>
-    </tr>
-    <tr>
-        <td>Year of Passing</td>
-        <td>{{studentbio.year_of_passing}}</td>
-    </tr>
-    <tr>
-        <td>Programme</td>
-        <td>{{studentbio.programme_name}}</td>
-    </tr>
-</table>
-
+  <img [src]="image" alt="">
+  <div class="heading"><h1>Student Details</h1></div>
+  <table>
+      <tr>
+          <td>Roll No</td>
+          <td>{{studentbio.rno}}</td>
+      </tr>
+      <tr>
+          <td>Student Name</td>
+          <td>{{studentbio.stud_name}}</td>
+      </tr>
+      <tr>
+          <td>Father's Name</td>
+          <td>{{studentbio.father_name}}</td>
+      </tr>
+      <tr>
+          <td>Mother's Name</td>
+          <td>{{studentbio.mother_name}}</td>
+      </tr>
+      <tr>
+          <td>Date of Birth</td>
+          <td>{{studentbio.dob}}</td>
+      </tr>
+      <tr>
+          <td>Gender</td>
+          <td *ngIf="studentbio.gender=='f'">Female</td>
+          <td *ngIf="studentbio.gender=='m'">Male</td>
+      </tr>
+      <tr>
+          <td>Address</td>
+          <td>{{studentbio.stud_address}}</td>
+      </tr>
+      <tr>
+          <td>Phone Number</td>
+          <td>{{studentbio.stud_mobile}}</td>
+      </tr>
+      <tr>
+          <td>E-mail</td>
+          <td>{{studentbio.stud_email}}</td>
+      </tr>
+      <tr>
+          <td>Year of Joining</td>
+          <td>{{studentbio.year_of_joining}}</td>
+      </tr>
+      <tr>
+          <td>Year of Passing</td>
+          <td>{{studentbio.year_of_passing}}</td>
+      </tr>
+      <tr>
+          <td>Programme</td>
+          <td>{{studentbio.programme_name}}</td>
+      </tr>
+  </table>
 </div>

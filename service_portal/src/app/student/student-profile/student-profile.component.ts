@@ -1,6 +1,7 @@
 import { UserDataService } from './../../user-data.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-student-profile',
@@ -9,16 +10,23 @@ import { Router } from '@angular/router';
 })
 export class StudentProfileComponent implements OnInit,OnDestroy {
   studentbio:any;
-
+  image:any;
   userDatafetcher:any;
-  constructor(private userData:UserDataService,private router:Router) {
+  constructor(private userData:UserDataService,private router:Router,private domsantizer:DomSanitizer) {
     this.studentbio = {"rno": "", "stud_name": "", "gender": "", "dob": "", "stud_address": "", "stud_pass": "", "photo":new Blob(),"stud_mobile":0,"stud_email":"","father_name":"","mother_name":"","year_of_joining":0,"year_of_passing":0,"batch_id":"","dept_id":"","programme_name":""};
   }
 
   ngOnInit(): void {
     this.userData.authCheck().subscribe(
-      data=>{
+      (data:any)=>{
         this.studentbio = data;
+        let TYPED_ARRAY = new Uint8Array(data.photo.data);
+        const STRING_CHAR = TYPED_ARRAY.reduce((data, byte)=> {
+          return data + String.fromCharCode(byte);
+          }, '');
+          let base64String = btoa(STRING_CHAR);
+          this.image = this.domsantizer.bypassSecurityTrustUrl("data:image/jpg;base64, " + base64String);
+
       },
       error=>{
         this.router.navigate(["/login"]);

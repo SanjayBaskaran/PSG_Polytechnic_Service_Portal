@@ -15,7 +15,7 @@ export class UserDataService {
   }
 
   authCheck(){
-    return this.http.get("http://localhost:3000/api/login//authCheck/student");
+    return this.http.get("http://localhost:3000/api/login/authCheck/student");
   }
   logout(){
     localStorage.removeItem("token");

@@ -1,3 +1,4 @@
+import { DomSanitizer } from '@angular/platform-browser';
 import { UserDataService } from './../../user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -8,12 +9,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./student-nav.component.scss',]
 })
 export class StudentNavComponent implements OnInit {
-
-  constructor(private userData:UserDataService,private router:Router) { }
+  image:any;
+  constructor(private userData:UserDataService,private router:Router,private domsantizer:DomSanitizer) { }
   logout(){
     this.userData.logout();
   }
   ngOnInit(): void {
+    this.userData.authCheck().subscribe((data:any)=>{
+        let TYPED_ARRAY = new Uint8Array(data.photo.data);
+        const STRING_CHAR = TYPED_ARRAY.reduce((data, byte)=> {
+          return data + String.fromCharCode(byte);
+          }, '');
+          let base64String = btoa(STRING_CHAR);
+          this.image = this.domsantizer.bypassSecurityTrustUrl("data:image/jpg;base64, " + base64String);
+    },(error)=>{
+      this.logout();
+    });
   }
 
 }
