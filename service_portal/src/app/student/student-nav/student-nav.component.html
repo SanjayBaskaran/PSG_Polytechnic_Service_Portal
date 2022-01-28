@@ -2,16 +2,12 @@
     <div class="thumbnail">
         <div class="image">
             <img [src]="image" alt="">
-            <div class="text">samplename</div>
+            <div class="text">{{name}}</div>
         </div>
     </div>
     <div class="nav">
 
-      <div class="mobile_view">
-        <div class="burger">
-          <button>Test</button>
-        </div>
-      </div>
+
         <ul class="root">
             <li>
                 <a routerLink="/student" routerLinkActive="active_tab" [routerLinkActiveOptions]="{exact:true}">

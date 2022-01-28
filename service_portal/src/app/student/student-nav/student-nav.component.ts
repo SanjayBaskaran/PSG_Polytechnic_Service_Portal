@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class StudentNavComponent implements OnInit {
   image:any;
+  name!:string;
   constructor(private userData:UserDataService,private router:Router,private domsantizer:DomSanitizer) { }
   logout(){
     this.userData.logout();
@@ -22,6 +23,7 @@ export class StudentNavComponent implements OnInit {
           }, '');
           let base64String = btoa(STRING_CHAR);
           this.image = this.domsantizer.bypassSecurityTrustUrl("data:image/jpg;base64, " + base64String);
+          this.name = data.stud_name;
     },(error)=>{
       this.logout();
     });
