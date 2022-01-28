@@ -1,5 +1,5 @@
 import { TokenHeaderInterceptorService } from './token-header-interceptor.service';
-
+import { BonafideService } from "./bonafide.service";
 import { UserDataService } from './user-data.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -53,7 +53,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [UserDataService,{provide:HTTP_INTERCEPTORS,useClass:TokenHeaderInterceptorService,multi:true}],
+  providers: [UserDataService,{provide:HTTP_INTERCEPTORS,useClass:TokenHeaderInterceptorService,multi:true},BonafideService],
   bootstrap: [AppComponent,]
 })
 export class AppModule { }

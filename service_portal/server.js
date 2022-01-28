@@ -4,6 +4,7 @@ const cors = require("cors");
 const bodyparser = require("body-parser");
 const user = require("./backend/user");
 var jwt = require("jsonwebtoken");
+const bonafide=require("./backend/bonafide");
 
 //Middlewares required
 app.use(bodyparser.json());
@@ -21,7 +22,7 @@ app.use((req, res, next) => {
   next();
 });
 app.use("/api/login",user);
-
+app.use("/api/bonafide",bonafide);
 app.listen(3000, (req, res) => {
   console.log("Listening port 3000");
 });

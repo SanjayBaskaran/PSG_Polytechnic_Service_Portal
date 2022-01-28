@@ -1,18 +1,18 @@
 <div class="content">
-    <form action="">
+    <form action="" (ngSubmit)='onSubmit(f)' #f='ngForm'>
         <table>
             <tr>
                 <td>Roll No</td>
-                <td><input type="text" name="" id="" [value]="studentbio.rno" disabled></td>
+                <td><input type="text" name="rno" id="" [value]="studentbio.rno" disabled></td>
             </tr>
             <tr>
                 <td>Student Name</td>
-                <td><input type="text" name="" id="" [value]="studentbio.stud_name" disabled></td>
+                <td><input type="text" name="sname" id="" [value]="studentbio.stud_name" disabled></td>
             </tr>
             <tr>
                 <td>Type</td>
                 <td>
-                <select name="bonafide_type" id="">
+                <select name="bonafide_type" id="" ngModel>
                     <option value="Test1">Test1</option>
                     <option value="Test2">Test2</option>
                 </select>
@@ -21,7 +21,7 @@
             <tr>
                 <td>Reason</td>
                 <td>
-                    <select name="bonafide_reason" id="">
+                    <select name="bonafide_reason" id="" ngModel>
                         <option value="Test1">Test1</option>
                         <option value="Test2">Test2</option>
                     </select>
@@ -29,7 +29,7 @@
             </tr>
             <tr>
                 <td>Comments</td>
-                <td><textarea></textarea></td>
+                <td><textarea name='comment' ngModel></textarea></td>
             </tr>
         </table>
         <input type="submit" value="Request">
