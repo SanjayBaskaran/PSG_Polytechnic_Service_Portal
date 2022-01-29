@@ -10,4 +10,7 @@ export class BonafideService {
   request(bonafideRequestData:any){
     return this.http.post('http://localhost:3000/api/bonafide/request',bonafideRequestData);
   }
+  responses(rno:any){
+    return this.http.post('http://localhost:3000/api/bonafide/responses',{"rno":rno});
+  }
 }

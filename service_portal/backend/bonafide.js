@@ -13,4 +13,15 @@ router.post("/request", (req, res) => {
     res.json({"Record":"Inserted"});
   });
 });
+router.post("/responses",(req,res)=>{
+  let query="SELECT * FROM bonafide WHERE rno='"+req.body.rno+"';";
+  con.query(query,function(err,result,fields){
+    if (err) throw err;
+    console.log(query);
+    if (result.length > 0){
+      console.log(result);
+      res.json(result);
+    }
+  })
+})
 module.exports=router;
