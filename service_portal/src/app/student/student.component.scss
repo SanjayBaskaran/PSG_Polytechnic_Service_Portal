@@ -1,20 +1,29 @@
 .main{
     background-color: #058ED9;
+    overflow-y: auto;
     display: flex;
     width: 100%;
     height: 100%;
     padding:0;
     @media (max-width:800px) {
       flex-direction: column;
-      overflow:scroll;
+
     }
     app-student-nav{
         @media (max-width:800px) {
           flex: 0px;
+          max-width: 100%;
+          min-width: 100%;
+          overflow:visible;
         }
-        flex: 400px;
+        flex: 250px;
+        max-width: 275px;
+        min-width: 275px;
         background-color: #058ED9;
-
+        height: auto;
+        overflow-y: auto;
+        overflow-x: hidden;
+        font-size: .5rem;
     }
     .content{
         @media (max-width:800px) {
@@ -31,6 +40,8 @@
         border-bottom-left-radius: 3rem;
         position: relative;
         width: 100%;
+        height: auto;
+        overflow-y: auto;
         background-color: white;
     }
 }

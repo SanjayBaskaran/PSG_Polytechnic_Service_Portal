@@ -69,11 +69,16 @@
             grid-template-columns: 1fr;
             @media (max-width:800px) {
                 display: flex;
+                justify-content: space-evenly;
             }
             list-style: none;
             row-gap: 1rem;
             li:nth-child(2){
-              @media(max-width:800px){display: none;}
+              @media(max-width:800px){
+                display: none;
+                visibility: hidden;
+                position: absolute;
+              }
             }
             li{
                 font-size: 1.7rem;
@@ -123,7 +128,7 @@
         border-top-left-radius: 5rem;
         border-bottom-left-radius: 5rem;
         box-shadow: 0px 0px 1px rgba($color: #032138, $alpha: 0.35),
-                    -70px -2px 5px rgba($color: #032138, $alpha: 0.35);
+                    -2.75rem 0px 2rem rgba($color: #032138, $alpha: 0.35);
     }
     div:nth-child(1){
         z-index: 4;
