@@ -1,3 +1,4 @@
+import { StudentDetailsComponent } from './teacher/student-bio/student-details/student-details.component';
 import { TokenHeaderInterceptorService } from './token-header-interceptor.service';
 import { BonafideService } from "./bonafide.service";
 import { UserDataService } from './user-data.service';
@@ -19,7 +20,6 @@ import { RequestComponent } from './teacher/request/request.component';
 import { PendingComponent } from './teacher/request/pending/pending.component';
 import { HistoryComponent } from './teacher/request/history/history.component';
 import { StudentBioComponent } from './teacher/student-bio/student-bio.component';
-import { StudentDetailsComponent } from './teacher/student_bio/student-details/student-details.component';
 
 import { RouterModule, Routes } from '@angular/router';
 
