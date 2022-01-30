@@ -18,11 +18,21 @@ export class BonafideComponent implements OnInit {
    onSubmit(form:NgForm){
      if(!form.valid)
      return
-     
+
      let data=form.value;
      data.rno=this.studentbio.rno;
      data.stud_name=this.studentbio.stud_name;
-     console.log(data)
+     data.batch_id = this.studentbio.batch_id;
+     console.log(data);
+     this.bonafideRequest.request(data).subscribe(
+       (data)=>{
+        alert("Bonafide Requested");
+        //email to the respective staffs
+        form.reset();
+       },(error)=>{
+        alert("There is some issue in adding your request Please try later");
+       }
+     );
    }
 
   ngOnInit(): void {
