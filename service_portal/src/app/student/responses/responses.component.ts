@@ -9,8 +9,8 @@ import { UserDataService } from 'src/app/user-data.service';
   styleUrls: ['./responses.component.scss']
 })
 export class ResponsesComponent implements OnInit {
-  studentBio:any
-
+  studentBio:any;
+  responses:any;
   constructor(private userdata:UserDataService,private router:Router,private bonafide:BonafideService) { }
 
   ngOnInit(): void {
@@ -19,8 +19,8 @@ export class ResponsesComponent implements OnInit {
         this.studentBio=data;
         this.bonafide.responses(data.rno).subscribe(
           responses=>{
-            console.log(responses);
-          },
+            this.responses=responses;
+           },
           err=>{
             alert("can't fetch responses");
           }
