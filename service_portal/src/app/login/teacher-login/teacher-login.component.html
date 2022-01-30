@@ -1,13 +1,14 @@
-<form action="">
+<form (ngSubmit)= "onSubmit()" #f="ngForm">
+  <div class="form__group field">
+      <input type="text" class="form__field" placeholder="USERNAME" name="staff_id" id='name' [ngModel] #user = "ngModel" required/>
+
+      <label for="name" class="form__label">USERNAME</label>
+    </div>
     <div class="form__group field">
-        <input type="text" class="form__field" placeholder="USERNAME" name="tusername" id='name' required />
-        <label for="name" class="form__label">USERNAME</label>
-      </div>
-      <div class="form__group field">
-        <input type="password" class="form__field" placeholder="PASSWORD" name="tpassword" id="password" required />
-        <label for="password" class="form__label">PASSWORD</label>
-      </div>
-      <div>
-        <input type="submit" value="Login">
-      </div>
+      <input type="password" class="form__field" placeholder="PASSWORD" name="password" id="password" [ngModel] #pass= "ngModel" required />
+      <label for="password" class="form__label">PASSWORD</label>
+    </div>
+    <div>
+      <input type="submit" value="Login" [disabled]="!(pass.dirty&&user.dirty&&pass.valid&&user.valid)"  />
+    </div>
 </form>
