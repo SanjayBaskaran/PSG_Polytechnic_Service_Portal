@@ -1,22 +1,22 @@
-<table>
-   <tr>
-       <th>REASON</th>
-       <th>TYPE</th>
-       <th>COMMENT</th>
-       <th>REQUESTED ON</th>
-       <th>VERIFICATION STATUS</th>
-       <th>DOWNLOAD PDF</th>
+<div>
+  <table>
+
+    <tr>
+        <th>REASON</th>
+        <th>TYPE</th>
+        <th>COMMENT</th>
+        <th>REQUESTED ON</th>
+        <th>VERIFICATION STATUS</th>
+        <th>DOWNLOAD PDF</th>
+      </tr>
+
+     <tr *ngFor="let response of responses">
+         <td>{{response.reason}}</td>
+         <td>{{response.type}}</td>
+         <td>{{response.comment}}</td>
+         <td>{{response.request}}</td>
+         <td>{{response.status}}</td>
+         <td>Download PDF</td>
      </tr>
-
-    <tr *ngFor="let response of responses">
-        <td>{{response.reason}}</td>
-        <td>{{response.type}}</td>
-        <td>{{response.comment}}</td>
-        <td>{{response.request}}</td>
-        <td>{{response.status}}</td>
-        <td>Download PDF</td>
-    </tr>
-    
-</table>
-
-        
+ </table>
+</div>

@@ -1,3 +1,4 @@
+import { TeacherAuthGuard } from './teacher-auth.guard';
 import { AuthGuard } from './auth.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -35,12 +36,12 @@ const routes: Routes = [
     ]
   },
   {
-    path:'teacher',component:TeacherComponent, children:[
-      {path:'',component:RequestComponent,children:[
-        {path:'',component:PendingComponent},
-        {path:'history',component:HistoryComponent} ]
+    path:'teacher',component:TeacherComponent, canActivate:[TeacherAuthGuard],children:[
+      {path:'',component:RequestComponent ,canActivate:[TeacherAuthGuard],children:[
+        {path:'',component:PendingComponent,canActivate:[TeacherAuthGuard]},
+        {path:'history',component:HistoryComponent,canActivate:[TeacherAuthGuard]} ]
       },
-      {path:'studentbio',component:StudentBioComponent}
+      {path:'studentbio',component:StudentBioComponent,canActivate:[TeacherAuthGuard] }
     ]
   },
   {

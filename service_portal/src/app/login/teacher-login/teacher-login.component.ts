@@ -13,6 +13,13 @@ export class TeacherLoginComponent implements OnInit {
   constructor(private userData:UserDataService,private router:Router) { }
 
   ngOnInit(): void {
+    this.userData.authCheckTeacher().subscribe(
+      data=>{
+        this.router.navigate(["/teacher"]);
+      },err=>{
+        console.log();
+      }
+    );
   }
   login(){
     this.userData.teacherLogin({staff_id:this.form.value.staff_id,password:this.form.value.password}).subscribe(

@@ -35,7 +35,7 @@ router.post("/responses",(req,res,next)=>{
     res.status(401).json({"Auth":false});
   }
 },(req,res)=>{
-  let query="SELECT * FROM bonafide WHERE rno='"+req.userData+"';";
+  let query="SELECT * FROM bonafide WHERE rno='"+req.userData+"' ORDER BY request DESC;";
   con.query(query,function(err,result,fields){
     if (err) throw err;
     if (result.length > 0){

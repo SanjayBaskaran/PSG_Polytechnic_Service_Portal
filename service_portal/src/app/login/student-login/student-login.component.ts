@@ -15,8 +15,14 @@ export class StudentLoginComponent implements OnInit ,OnDestroy,OnChanges{
   @ViewChild("f") form:any;
   constructor(private userData:UserDataService,private router:Router,) {
   }
-
+  enableLogin:boolean = true;
   ngOnInit(): void {
+    setInterval(()=>{
+      //console.log(!!this.userData.getToken());
+      this.enableLogin = !!this.userData.getToken();
+    },
+    3000
+    );
     this.userData.authCheck().subscribe(
       data=>{
         this.router.navigate(["/student"]);
