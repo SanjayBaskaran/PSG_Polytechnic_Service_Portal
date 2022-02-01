@@ -1,3 +1,4 @@
+import { UserDataService } from './../../user-data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeacherNavComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private userData:UserDataService) { }
+  logout(){
+    this.userData.logout();
+  }
   ngOnInit(): void {
   }
 
