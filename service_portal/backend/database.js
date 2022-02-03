@@ -6,4 +6,5 @@ const con = mysql.createConnection({
   database: "sql6466493",
   port:3306
 });
+con.wait_timeout=28800;
 module.exports = con;
