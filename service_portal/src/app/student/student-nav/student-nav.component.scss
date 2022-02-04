@@ -33,6 +33,7 @@
 .snav{
     font-family: 'Roboto', sans-serif;
     position: relative;
+
     .thumbnail{
         width: 100%;
         position: relative;
@@ -81,7 +82,7 @@
               }
             }
             li{
-                font-size: 1.7rem;
+                font-size: 28px;
                 a{
                     display: grid;
                     grid-template-columns: 1fr 4fr;
