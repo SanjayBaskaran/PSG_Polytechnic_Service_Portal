@@ -64,13 +64,6 @@
             }
             list-style: none;
             row-gap: 1rem;
-            li:nth-child(2){
-              @media(max-width:800px){
-                display: none;
-                visibility: hidden;
-                position: absolute;
-              }
-            }
             li{
                 font-size: 28px;
                 a{

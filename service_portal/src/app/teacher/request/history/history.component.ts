@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { BonafideService } from 'src/app/bonafide.service';
 
 @Component({
   selector: 'app-history',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private bonafide:BonafideService,private router:Router) { }
 
   ngOnInit(): void {
+    this.bonafide.history().subscribe((data:any)=>{
+    console.log(data);
+  },err=>{
+    this.router.navigate(['login/Teacher']);
+    
+  }
+  )
   }
 
 }

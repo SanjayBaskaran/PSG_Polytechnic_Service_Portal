@@ -13,4 +13,11 @@ export class BonafideService {
   responses(rno:any){
     return this.http.post('http://localhost:3000/api/bonafide/responses',{"rno":rno});
   }
+  pending(){
+    return this.http.get('http://localhost:3000/api/bonafide/pending');
+
+  }
+  history(){
+    return this.http.get('http://localhost:3000/api/bonafide/history');
+  }
 }
