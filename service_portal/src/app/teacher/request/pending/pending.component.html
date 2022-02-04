@@ -1,1 +1,22 @@
-<p>pending works!</p>
+<div>
+    <table>
+  
+      <tr>
+          <th>REASON</th>
+          <th>TYPE</th>
+          <th>COMMENT</th>
+          <th>REQUESTED ON</th>
+          <th>VERIFICATION STATUS</th>
+          <th>DOWNLOAD PDF</th>
+        </tr>
+  
+       <tr *ngFor="let pendingRequest of pendingRequests">
+           <td>{{pendingRequest.reason}}</td>
+           <td>{{pendingRequest.type}}</td>
+           <td>{{pendingRequest.comment}}</td>
+           <td>{{pendingRequest.request}}</td>
+           <td>{{pendingRequest.status}}</td>
+           <td>Download PDF</td>
+       </tr>
+   </table>
+  </div>

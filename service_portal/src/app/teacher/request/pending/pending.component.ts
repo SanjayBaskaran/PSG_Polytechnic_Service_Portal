@@ -9,11 +9,12 @@ import { BonafideService } from 'src/app/bonafide.service';
   styleUrls: ['./pending.component.scss']
 })
 export class PendingComponent implements OnInit {
-
+  pendingRequests:any;
   constructor(private bonafide:BonafideService,private router:Router) { }
 
   ngOnInit(): void {
     this.bonafide.pending().subscribe((data:any)=>{
+      this.pendingRequests=data;
       console.log(data);
     },err=>{
       this.router.navigate(['login/Teacher']);
