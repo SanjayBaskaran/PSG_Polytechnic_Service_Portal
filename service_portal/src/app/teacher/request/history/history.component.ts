@@ -8,11 +8,13 @@ import { BonafideService } from 'src/app/bonafide.service';
   styleUrls: ['./history.component.scss']
 })
 export class HistoryComponent implements OnInit {
+  historyRequests:any;
 
   constructor(private bonafide:BonafideService,private router:Router) { }
 
   ngOnInit(): void {
     this.bonafide.history().subscribe((data:any)=>{
+    this.historyRequests=data;
     console.log(data);
   },err=>{
     this.router.navigate(['login/Teacher']);

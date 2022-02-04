@@ -21,6 +21,7 @@ import { RequestComponent } from './teacher/request/request.component';
 import { StudentBioComponent } from './teacher/student-bio/student-bio.component';
 import { TeacherComponent } from './teacher/teacher.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { StudentDetailsComponent } from './teacher/student-bio/student-details/student-details.component';
 
 const routes: Routes = [
   {path:'adminLogin',component:AdminLoginComponent},
@@ -56,7 +57,8 @@ const routes: Routes = [
         {path:'',component:PendingComponent,canActivate:[TeacherAuthGuard]},
         {path:'history',component:HistoryComponent,canActivate:[TeacherAuthGuard]} ]
       },
-      {path:'studentbio',component:StudentBioComponent,canActivate:[TeacherAuthGuard] }
+      {path:'studentbio',component:StudentBioComponent,canActivate:[TeacherAuthGuard] },
+      {path:'studentdetails',component:StudentDetailsComponent}
     ]
   },
   {

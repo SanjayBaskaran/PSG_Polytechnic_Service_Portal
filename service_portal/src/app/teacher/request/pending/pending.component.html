@@ -2,21 +2,21 @@
     <table>
   
       <tr>
+          <th>ROLL NO</th>
+          <th>STUDENT NAME</th>
           <th>REASON</th>
-          <th>TYPE</th>
           <th>COMMENT</th>
           <th>REQUESTED ON</th>
-          <th>VERIFICATION STATUS</th>
-          <th>DOWNLOAD PDF</th>
+          <th>APPROVAL</th>
         </tr>
   
        <tr *ngFor="let pendingRequest of pendingRequests">
-           <td>{{pendingRequest.reason}}</td>
+           <td>{{pendingRequest.rno}}</td>
            <td>{{pendingRequest.type}}</td>
+           <td>{{pendingRequest.reason}}</td>
            <td>{{pendingRequest.comment}}</td>
            <td>{{pendingRequest.request}}</td>
-           <td>{{pendingRequest.status}}</td>
-           <td>Download PDF</td>
-       </tr>
+           <td>YES/NO</td>
+           </tr>
    </table>
   </div>

@@ -1,1 +1,3 @@
-<p>student-bio works!</p>
+<div *ngFor="let student of studentId;let indexEle = index;"> 
+    <div (click)="studentBio(indexEle)"> {{student.rno}}</div>
+</div>
