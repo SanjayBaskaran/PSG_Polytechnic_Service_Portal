@@ -1,3 +1,9 @@
+import { BatchComponent } from './admin/batch/batch.component';
+import { ProgrammeComponent } from './admin/programme/programme.component';
+import { DepartmentComponent } from './admin/department/department.component';
+import { StaffComponent } from './admin/staff/staff.component';
+import { StudComponent } from './admin/stud/stud.component';
+import { AdminComponent } from './admin/admin.component';
 import { TeacherAuthGuard } from './teacher-auth.guard';
 import { AuthGuard } from './auth.guard';
 import { NgModule } from '@angular/core';
@@ -14,8 +20,17 @@ import { PendingComponent } from './teacher/request/pending/pending.component';
 import { RequestComponent } from './teacher/request/request.component';
 import { StudentBioComponent } from './teacher/student-bio/student-bio.component';
 import { TeacherComponent } from './teacher/teacher.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 const routes: Routes = [
+  {path:'adminLogin',component:AdminLoginComponent},
+  {path:'admin',component:AdminComponent,canActivate:[AuthGuard],children:[
+    {path:'student',component:StudComponent},
+    {path:'teacher',component:StaffComponent},
+    {path:'department',component:DepartmentComponent},
+    {path:'programme',component:ProgrammeComponent},
+    {path:'batch',component:BatchComponent}
+  ]},
   { path:'login',component:LoginComponent,children:[
       { path:'',component:StudentLoginComponent},
       { path:'teacher',component:TeacherLoginComponent}

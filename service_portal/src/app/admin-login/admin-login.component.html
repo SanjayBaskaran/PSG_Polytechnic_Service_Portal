@@ -1,0 +1,27 @@
+<div class="body">
+  <div class="container">
+      <div class="logo">
+          <img src="assets/logo.png" alt="">
+      </div>
+      <div class="content">
+          <div class="form">
+            <form  #f="ngForm" (ngSubmit)="onSubmit()">
+              <div class="form__group field">
+                  <input type="text" class="form__field" placeholder="USERNAME" name="username" id='name' [ngModel] #user = "ngModel" required/>
+
+                  <label for="name" class="form__label">USERNAME</label>
+                </div>
+                <div class="form__group field">
+                  <input type="password" class="form__field" placeholder="PASSWORD" name="password" id="password" [ngModel] #pass= "ngModel" required />
+                  <label for="password" class="form__label">PASSWORD</label>
+                </div>
+                <div>
+                  <input type="submit" value="Login" [disabled]="!(pass.dirty&&user.dirty&&pass.valid&&user.valid)"  />
+                </div>
+          </form>
+
+          </div>
+      </div>
+  </div>
+
+</div>

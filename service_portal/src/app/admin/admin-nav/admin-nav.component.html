@@ -1,0 +1,78 @@
+<div class="snav">
+
+  <div class="nav">
+
+
+      <ul class="root">
+        <li></li>
+          <li>
+              <a routerLink="student" routerLinkActive="active_tab" [routerLinkActiveOptions]="{exact:true}">
+                  <div>
+                      <img src="./../../../assets/icons/student.png" alt="">
+                  </div>
+
+                  <div>
+                      <div class="text">STUDENT</div>
+                  </div>
+              </a>
+          </li>
+          <li>
+              <a routerLink="teacher" routerLinkActive="active_tab">
+                  <div>
+                      <img src="./../../../assets/icons/teacher.png" alt="">
+                  </div>
+
+                  <div>
+                      <div class="text">TEACHER</div>
+                  </div>
+              </a>
+          </li>
+          <li>
+              <a routerLink="department" routerLinkActive="active_tab">
+                  <div>
+                      <img src="./../../../assets/icons/department.png" alt="">
+                  </div>
+
+                  <div>
+                   <div class="text">DEPARTMENT</div>
+                  </div>
+              </a>
+          </li>
+          <li>
+            <a routerLink="programme" routerLinkActive="active_tab">
+                <div>
+                    <img src="./../../../assets/icons/programme.png" alt="">
+                </div>
+
+                <div>
+                    PROGRAMME
+                </div>
+            </a>
+        </li>
+        <li>
+          <a routerLink="batch" routerLinkActive="active_tab">
+              <div>
+                  <img src="./../../../assets/icons/batch.png" alt="">
+              </div>
+
+              <div>
+                  BATCH
+              </div>
+          </a>
+      </li>
+      <li>
+        <a (click)="logout()">
+            <div>
+                <img src="./../../../assets/icons/logout.png" alt="">
+            </div>
+
+            <div>
+                LOGOUT
+            </div>
+        </a>
+    </li>
+      </ul>
+
+  </div>
+</div>
+

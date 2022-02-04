@@ -12,6 +12,7 @@ export class TeacherNavComponent implements OnInit {
   constructor(private userData:UserDataService,private router:Router) { }
   logout(){
     this.userData.logout();
+    this.router.navigate(['login/teacher']);
   }
   ngOnInit(): void {
     this.userData.authCheckTeacher().subscribe(

@@ -14,6 +14,7 @@ export class StudentNavComponent implements OnInit {
   constructor(private userData:UserDataService,private router:Router,private domsantizer:DomSanitizer) { }
   logout(){
     this.userData.logout();
+    this.router.navigate(['login']);
   }
   ngOnInit(): void {
     this.userData.authCheck().subscribe((data:any)=>{

@@ -26,6 +26,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { StudentComponent } from './student/student.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminNavComponent } from './admin/admin-nav/admin-nav.component';
+import { DepartmentComponent } from './admin/department/department.component';
+import { ProgrammeComponent } from './admin/programme/programme.component';
+import { StudComponent } from './admin/stud/stud.component';
+import { StaffComponent } from './admin/staff/staff.component';
+import { BatchComponent } from './admin/batch/batch.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +52,15 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     PendingComponent,
     HistoryComponent,
     StudentBioComponent,
-    StudentDetailsComponent
+    StudentDetailsComponent,
+    AdminLoginComponent,
+    AdminComponent,
+    AdminNavComponent,
+    DepartmentComponent,
+    ProgrammeComponent,
+    StudComponent,
+    StaffComponent,
+    BatchComponent,
   ],
   imports: [
     BrowserModule,

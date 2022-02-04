@@ -20,14 +20,19 @@ export class UserDataService {
   teacherLogin(teacher:{staff_id:String,password:String}){
     return this.http.post("http://localhost:3000/api/login/teacher",teacher);
   }
+  adminLogin(admin:{username:String,password:String}){
+    return this.http.post("http://localhost:3000/api/login/admin",admin);
+  }
   authCheckTeacher(){
     return this.http.get("http://localhost:3000/api/login/authCheck/teacher");
+  }
+  authCheckAdmin(){
+    return this.http.get("http://localhost:3000/api/login/authCheck/admin");
   }
   studentBio(){
     return this.http.get("http://localhost:3000/api/studentbio");
   }
   logout(){
     localStorage.removeItem("token");
-    this.router.navigate(["/login"]);
   }
 }
