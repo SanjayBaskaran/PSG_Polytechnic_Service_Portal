@@ -58,7 +58,7 @@ router.get("/pending", (req, res, next) => {
   con.query(query, function (err, result, fields) {
     if (err) throw err;
     if (result.length == 1) {
-      let query = "SELECT * FROM bonafide WHERE rno IN (SELECT rno FROM student WHERE dept_id=(SELECT dept_id from dept WHERE hod='" + req.userData + "'))AND status!='YYY' ORDER BY request DESC;";
+      let query = "SELECT student.stud_name,pending.* FROM (SELECT * FROM bonafide WHERE rno IN (SELECT rno FROM student WHERE dept_id=(SELECT dept_id from dept WHERE hod='" + req.userData + "'AND status!='YYY') ORDER BY request DESC)) as pending join student on pending.rno=student.rno;";
       con.query(query, function (err, result, fields) {
         if (err) throw err;
         if (result.length > 0) {
@@ -69,7 +69,7 @@ router.get("/pending", (req, res, next) => {
       });
     }
     else if (result.length == 0) {
-      let query = "SELECT * FROM bonafide WHERE rno IN (SELECT rno FROM student WHERE batch_id=(SELECT batch_id FROM batch WHERE tutor_id='" + req.userData + "' AND status!='YYY' ORDER BY request DESC));";
+      let query = "SELECT student.stud_name,pending.* FROM (SELECT * FROM bonafide WHERE rno IN (SELECT rno FROM student WHERE batch_id=(SELECT batch_id FROM batch WHERE tutor_id='" + req.userData + "' AND status!='YYY') ORDER BY request DESC)) as pending join student on pending.rno=student.rno;";
       con.query(query, function (err, result, fields) {
         if (err) throw err;
         res.json(result);
@@ -96,7 +96,7 @@ router.get("/history", (req, res, next) => {
   con.query(query, function (err, result, fields) {
     if (err) throw err;
     if (result.length == 1) {
-      let query = "SELECT * FROM bonafide WHERE rno IN (SELECT rno FROM student WHERE dept_id=(SELECT dept_id from dept WHERE hod='" + req.userData + "')) ORDER BY request DESC;";
+      let query = "SELECT student.stud_name,history.* FROM  (SELECT * FROM bonafide WHERE rno IN (SELECT rno FROM student WHERE dept_id=(SELECT dept_id from dept WHERE hod='" + req.userData + "') ORDER BY request DESC))as history join student on history.rno=student.rno;";
       con.query(query, function (err, result, fields) {
         if (err) throw err;
         if (result.length > 0) {
@@ -107,7 +107,7 @@ router.get("/history", (req, res, next) => {
       });
     }
     else if (result.length == 0) {
-      let query = "SELECT * FROM bonafide WHERE rno IN (SELECT rno FROM student WHERE batch_id=(SELECT batch_id FROM batch WHERE tutor_id='" + req.userData + "' ORDER BY request DESC));";
+      let query = "SELECT student.stud_name,history.* FROM  (SELECT * FROM bonafide WHERE rno IN (SELECT rno FROM student WHERE batch_id=(SELECT batch_id FROM batch WHERE tutor_id='" + req.userData + "') ORDER BY request DESC))as history join student on history.rno=student.rno;";
       con.query(query, function (err, result, fields) {
         if (err) throw err;
         res.json(result);
