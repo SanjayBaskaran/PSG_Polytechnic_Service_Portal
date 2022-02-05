@@ -1,6 +1,7 @@
 import { UserDataService } from 'src/app/user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CurrentStudentService } from 'src/app/current-student.service';
 
 @Component({
   selector: 'app-student-bio',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class StudentBioComponent implements OnInit {
   studentId:any;
-  constructor(private userdata:UserDataService,private router:Router) { }
+  constructor(private userdata:UserDataService,private router:Router, private currStudent:CurrentStudentService) { }
 
   ngOnInit(): void {
     this.userdata.studentBio().subscribe(
@@ -23,6 +24,7 @@ export class StudentBioComponent implements OnInit {
   }
   studentBio(index:number){
     console.log(this.studentId[index]);
-    this.router.navigate(["teacher/studentdetails"],{queryParams:this.studentId[index]});
+    this.currStudent.student=this.studentId[index];
+    this.router.navigate(["teacher/studentdetails"]);
   }
 }
