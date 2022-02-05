@@ -1,4 +1,6 @@
+import { AdminService } from './../../admin.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-stud',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudComponent implements OnInit {
 
-  constructor() { }
+  constructor(private admindata:AdminService,private router:Router) { }
 
   ngOnInit(): void {
+    this.admindata.student().subscribe(
+      (data)=>{
+        console.log(data);
+      },(err)=>{
+        this.router.navigate(['adminLogin']);
+      }
+    );
   }
 
 }

@@ -1,3 +1,4 @@
+import { BonafideDetailsComponent } from './admin/bonafide-details/bonafide-details.component';
 import { BatchComponent } from './admin/batch/batch.component';
 import { ProgrammeComponent } from './admin/programme/programme.component';
 import { DepartmentComponent } from './admin/department/department.component';
@@ -30,7 +31,8 @@ const routes: Routes = [
     {path:'teacher',component:StaffComponent},
     {path:'department',component:DepartmentComponent},
     {path:'programme',component:ProgrammeComponent},
-    {path:'batch',component:BatchComponent}
+    {path:'batch',component:BatchComponent},
+    {path:'bonafide',component:BonafideDetailsComponent}
   ]},
   { path:'login',component:LoginComponent,children:[
       { path:'',component:StudentLoginComponent},

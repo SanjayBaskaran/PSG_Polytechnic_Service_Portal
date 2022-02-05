@@ -34,6 +34,7 @@ import { ProgrammeComponent } from './admin/programme/programme.component';
 import { StudComponent } from './admin/stud/stud.component';
 import { StaffComponent } from './admin/staff/staff.component';
 import { BatchComponent } from './admin/batch/batch.component';
+import { BonafideDetailsComponent } from './admin/bonafide-details/bonafide-details.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { BatchComponent } from './admin/batch/batch.component';
     StudComponent,
     StaffComponent,
     BatchComponent,
+    BonafideDetailsComponent,
   ],
   imports: [
     BrowserModule,

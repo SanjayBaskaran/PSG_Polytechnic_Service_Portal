@@ -3,16 +3,16 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-department',
-  templateUrl: './department.component.html',
-  styleUrls: ['./department.component.scss']
+  selector: 'app-bonafide-details',
+  templateUrl: './bonafide-details.component.html',
+  styleUrls: ['./bonafide-details.component.scss']
 })
-export class DepartmentComponent implements OnInit {
+export class BonafideDetailsComponent implements OnInit {
 
   constructor(private admindata:AdminService,private router:Router) { }
 
   ngOnInit(): void {
-    this.admindata.department().subscribe(
+    this.admindata.bonafide().subscribe(
       (data)=>{
         console.log(data);
       },(err)=>{
@@ -20,5 +20,4 @@ export class DepartmentComponent implements OnInit {
       }
     );
   }
-
 }
