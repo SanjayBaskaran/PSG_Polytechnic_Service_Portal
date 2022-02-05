@@ -1,15 +1,17 @@
 <div>
     <div>Form</div>
     <div>
-        <div class="flex-container" *ngFor="let student of studentInfo">
-            <div>
-                <img [src]="image" alt="">
-            <div>
-                <h4><b>{{student.stud_name}}</b></h4>
-                <p>
-                    {{student.rno}}
-                </p>
-            </div>
+        <div class="container">
+            <div class="item" *ngFor="let student of studentInfo;let indexEle = index;">
+                <div class="card">
+                    <img [src]="image[indexEle]" alt="">
+                    <div>
+                        <h4><b>{{student.stud_name}}</b></h4>
+                        <p>
+                            {{student.rno}}
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
