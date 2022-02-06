@@ -1,5 +1,73 @@
 <div>
-    <div>Form</div>
+    <div id="add">
+      <div>
+        <label for="rno">rno</label>
+        <input type="text" name="rno">
+      </div>
+      <div>
+        <label for="stud_name">Student Name</label>
+        <input type="text" name="stud_name">
+      </div>
+      <div>
+        <label for="gender">Gender</label>
+        <input type="radio" name="sex" value="Male">
+        <input type="radio" name="sex" value="Female">
+      </div>
+      <div>
+        <label for="dob">Date of Birth</label>
+        <input type="date" name="dob">
+      </div>
+      <div>
+        <label for="stud_address">Student Address</label>
+        <textarea type="text" name="stud_address"></textarea>
+      </div>
+      <div>
+        <label for="stud_pass">Student Password</label>
+        <input type="password" name="stud_pass">
+      </div>
+      <div>
+        <label for="photo">Student Photo</label>
+        <input type="file" name="photo">
+      </div>
+      <div>
+        <label for="stud_mobile">Student Mobile</label>
+        <input type="tel" name="stud_mobile">
+      </div>
+      <div>
+        <label for="father_name">Father's name</label>
+        <input type="text" name="father_name">
+      </div>
+      <div>
+        <label for="mother_name">Mother's name</label>
+        <input type="text" name="mother_name">
+      </div>
+      <div>
+        <label for="year_of_joining">Year of Joining</label>
+        <input type="date" name="year_of_joining">
+      </div>
+      <div>
+        <label for="year_of_passing">Year of Passing</label>
+        <input type="date" name="year_of_passing">
+      </div>
+      <div>
+        <label for="batch_id">Batch ID</label>
+        <select name="batch_id">
+          <option value="18dc">18dc</option>
+        </select>
+      </div>
+      <div>
+        <label for="dept_id">Department</label>
+        <select name="dept_id">
+          <option value="cs">CS</option>
+        </select>
+      </div>
+      <div>
+        <label for="programme_name">Programme</label>
+        <select name="programme_name">
+          <option value="cs">BE</option>
+        </select>
+      </div>
+    </div>
     <div>
         <div class="container">
             <div class="item" *ngFor="let student of studentInfo;let indexEle = index;">

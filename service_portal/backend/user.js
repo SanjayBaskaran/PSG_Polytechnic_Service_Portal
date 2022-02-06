@@ -132,7 +132,15 @@ router.get(
 router.post("/admin", (req, res) => {
   let query = "SELECT * FROM admin WHERE username='" + req.body.username + "';";
   con.query(query, function (err, result, fields) {
-    if (err) throw err;
+    if (err) {
+
+      try{
+        throw err;
+      }catch(err){
+
+        res.status(401).json({ message: "Invalid User" });
+      }
+    }
     if (result.length > 0) {
       bcrypt.compare(
         req.body.password,
@@ -173,8 +181,11 @@ router.get(
   },
   (req, res) => {
     let query = "SELECT * FROM admin WHERE username='" + req.userData + "';";
+    console.log("At Admin");
     con.query(query, function (err, result, fields) {
+      console.log(err);
       if (err) {
+
         try{
           throw err;
         }catch(err){
