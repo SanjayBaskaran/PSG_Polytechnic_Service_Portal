@@ -32,14 +32,7 @@ var db_config = {
 
 connection = mysql.createConnection(db_config);
 
-connection.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-});
 
-connection.on("error",function(err){
-  console.log('error in db',err.code)
-  console.log(err)
-});
+
 
 module.exports = connection;

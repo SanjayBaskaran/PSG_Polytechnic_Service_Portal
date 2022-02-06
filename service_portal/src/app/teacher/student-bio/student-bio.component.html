@@ -1,7 +1,7 @@
 
   <div class="container">
     <div class="item" *ngFor="let student of students;let indexEle = index;">
-        <div class="card">
+        <div class="card" (click)="studentBio(indexEle)">
             <img [src]="image[indexEle]" alt="">
             <div>
                 <h4><b>{{student.stud_name}}</b></h4>

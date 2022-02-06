@@ -3,7 +3,12 @@ const con = require("./database");
 const jwt = require("jsonwebtoken");
 var router = express.Router();
 const bcrypt = require("bcrypt");
-
+// con.connect((err)=>{
+//   if(err){
+//     return console.error('error: ' + err.message);
+//   }
+//   console.log("Connected to USER");
+// });
 router.post("/student", (req, res) => {
   let query =
     "SELECT * FROM student WHERE rno='" +
@@ -12,7 +17,14 @@ router.post("/student", (req, res) => {
     req.body.password +
     "';";
   con.query(query, function (err, result, fields) {
-    if (err) throw err;
+    if (err) {
+      try{
+        throw err;
+      }catch(err){
+
+        res.status(401).json({ message: "Invalid User" });
+      }
+    }
     if (result.length > 0) {
       let token = jwt.sign(
         { rno: result[0].rno, stud_name: result[0].stud_name },
@@ -63,7 +75,14 @@ router.post("/teacher", (req, res) => {
     req.body.password +
     "';";
   con.query(query, function (err, result, fields) {
-    if (err) throw err;
+    if (err) {
+      try{
+        throw err;
+      }catch(err){
+
+        res.status(401).json({ message: "Invalid User" });
+      }
+    }
     if (result.length > 0) {
       let token = jwt.sign(
         { staff_id: result[0].staff_id, staff_name: result[0].staff_name },
@@ -93,7 +112,14 @@ router.get(
   (req, res) => {
     let query = "SELECT * FROM staff WHERE staff_id='" + req.userData + "';";
     con.query(query, function (err, result, fields) {
-      if (err) throw err;
+      if (err) {
+        try{
+          throw err;
+        }catch(err){
+
+          res.status(401).json({ message: "Invalid User" });
+        }
+      }
       if (result.length > 0) {
         res.json(result[0]);
       } else {
@@ -112,8 +138,13 @@ router.post("/admin", (req, res) => {
         req.body.password,
         result[0].password,
         function (err, resultx) {
-          if(err){
-            throw err;
+          if (err) {
+            try{
+              throw err;
+            }catch(err){
+
+              res.status(401).json({ message: "Invalid User" });
+            }
           }
           let token = jwt.sign(
               { username: result[0].username},
@@ -143,7 +174,14 @@ router.get(
   (req, res) => {
     let query = "SELECT * FROM admin WHERE username='" + req.userData + "';";
     con.query(query, function (err, result, fields) {
-      if (err) throw err;
+      if (err) {
+        try{
+          throw err;
+        }catch(err){
+
+          res.status(401).json({ message: "Invalid User" });
+        }
+      }
       if (result.length > 0) {
         res.json(result[0]);
       } else {
@@ -152,5 +190,8 @@ router.get(
     });
   }
 );
-
+// con.on("error",function(err){
+//   console.log('error in USER db',err.code)
+//   console.log(err)
+// });
 module.exports = router;
