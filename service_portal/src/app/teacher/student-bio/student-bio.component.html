@@ -1,3 +1,15 @@
-<div *ngFor="let student of studentId;let indexEle = index;"> 
-    <div (click)="studentBio(indexEle)"> {{student.rno}}</div>
+
+  <div class="container">
+    <div class="item" *ngFor="let student of students;let indexEle = index;">
+        <div class="card">
+            <img [src]="image[indexEle]" alt="">
+            <div>
+                <h4><b>{{student.stud_name}}</b></h4>
+                <p>
+                    {{student.rno}}
+                </p>
+            </div>
+        </div>
+    </div>
+
 </div>

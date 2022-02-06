@@ -27,6 +27,11 @@ app.use("/api/login",user);
 app.use("/api/bonafide",bonafide);
 app.use("/api/studentbio",studentbio);
 app.use("/api/admin",admin);
+
+app.on("error",function(err){
+  console.log('error in app',err.code)
+  console.log(err)
+});
 app.listen(3000, (req, res) => {
   console.log("Listening port 3000");
 });
