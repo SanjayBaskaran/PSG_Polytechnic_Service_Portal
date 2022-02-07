@@ -8,12 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./department.component.scss']
 })
 export class DepartmentComponent implements OnInit {
-
+departmentInfo:any;
   constructor(private admindata:AdminService,private router:Router) { }
 
   ngOnInit(): void {
     this.admindata.department().subscribe(
       (data)=>{
+        this.departmentInfo=data;
         console.log(data);
       },(err)=>{
         this.router.navigate(['adminLogin']);

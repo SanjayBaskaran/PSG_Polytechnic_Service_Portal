@@ -8,12 +8,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./staff.component.scss']
 })
 export class StaffComponent implements OnInit {
+  teacherInfo:any;
+
 
   constructor(private admindata:AdminService,private router:Router) { }
 
   ngOnInit(): void {
     this.admindata.teacher().subscribe(
       (data)=>{
+        this.teacherInfo=data;
         console.log(data);
       },(err)=>{
         this.router.navigate(['adminLogin']);

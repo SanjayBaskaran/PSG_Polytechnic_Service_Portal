@@ -1,1 +1,45 @@
-<p>bonafide-details works!</p>
+<div>
+    <div id="nav">
+      <div class="buttons">
+        <div class="insert">
+          <img src="assets/icons/add.png" alt="">
+        </div>
+        <div class="edit">
+          <img src="assets/icons/update.png" alt="">
+        </div>
+        <div class="delete">
+          <img src="assets/icons/delete.png" alt="">
+        </div>
+      </div>
+    </div>
+    <div>
+        <div class="container">
+            <div class="item" *ngFor="let bonafide of bonafideInfo;">
+                <div class="card">
+                    <div>
+                        <h4><b>Roll No: {{bonafide.rno}}</b></h4>
+                        <p>
+                            Bonafide ID: {{bonafide.bonafide_id}}
+                        </p>
+                        <p>
+                            Type: {{bonafide.type}}
+                        </p>
+                        <p>
+                            Reason: {{bonafide.reason}}
+                        </p>
+                        <p>
+                            Request: {{bonafide.request}}
+                        </p>
+                        <p>
+                            Issue Date{{bonafide.issue}}
+                        </p>
+                        <p>
+                            Status: {{bonafide.status}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

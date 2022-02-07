@@ -1,1 +1,31 @@
-<p>batch works!</p>
+<div>
+    <div id="nav">
+      <div class="buttons">
+        <div class="insert">
+          <img src="assets/icons/add.png" alt="">
+        </div>
+        <div class="edit">
+          <img src="assets/icons/update.png" alt="">
+        </div>
+        <div class="delete">
+          <img src="assets/icons/delete.png" alt="">
+        </div>
+      </div>
+    </div>
+    <div>
+        <div class="container">
+            <div class="item" *ngFor="let batch of batchInfo;">
+                <div class="card">
+                    <div>
+                        <h4><b>{{batch.batch_id}}</b></h4>
+                        <p>
+                            {{batch.no_of_students}}
+                        </p>
+                        <p>{{batch.tutor_id}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

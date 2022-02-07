@@ -8,12 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./programme.component.scss']
 })
 export class ProgrammeComponent implements OnInit {
+  programmeInfo:any;
 
   constructor(private admindata:AdminService,private router:Router) { }
 
   ngOnInit(): void {
     this.admindata.programme().subscribe(
       (data)=>{
+        this.programmeInfo=data;
         console.log(data);
       },(err)=>{
         this.router.navigate(['adminLogin']);

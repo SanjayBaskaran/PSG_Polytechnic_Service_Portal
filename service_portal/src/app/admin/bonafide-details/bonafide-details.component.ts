@@ -8,12 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./bonafide-details.component.scss']
 })
 export class BonafideDetailsComponent implements OnInit {
+  bonafideInfo:any;
 
   constructor(private admindata:AdminService,private router:Router) { }
 
   ngOnInit(): void {
     this.admindata.bonafide().subscribe(
       (data)=>{
+        this.bonafideInfo=data;
         console.log(data);
       },(err)=>{
         this.router.navigate(['adminLogin']);
