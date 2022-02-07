@@ -1,6 +1,6 @@
 div{
     @media (max-width:800px) {
-  
+
       padding: 2rem 0rem;
     }
     padding: 1rem 3rem;
@@ -12,7 +12,7 @@ div{
       position: relative;
       tr{
         line-height: 2rem;
-  
+
         th{
           background-color: #058ed9;
           color: white;
@@ -30,6 +30,10 @@ div{
         }
       }
     }
-  
+
   }
-  
+  .loading{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+  }

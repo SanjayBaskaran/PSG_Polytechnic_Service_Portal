@@ -11,6 +11,7 @@ import { UserDataService } from 'src/app/user-data.service';
 export class ResponsesComponent implements OnInit {
   studentBio:any;
   responses:any;
+  loading:boolean=true;
   constructor(private userdata:UserDataService,private router:Router,private bonafide:BonafideService) { }
 
   ngOnInit(): void {
@@ -20,12 +21,13 @@ export class ResponsesComponent implements OnInit {
         this.bonafide.responses(data.rno).subscribe(
           responses=>{
             this.responses=responses;
+            this.loading=false;
            },
           err=>{
             alert("can't fetch responses");
           }
         )
-        
+
         },
        (err)=>{
          this.router.navigate(["/login"])

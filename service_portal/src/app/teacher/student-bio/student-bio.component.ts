@@ -12,6 +12,7 @@ import { CurrentStudentService } from 'src/app/current-student.service';
 export class StudentBioComponent implements OnInit {
   students:any;
   image:Array<any>=[];
+  loading:boolean=true;
   constructor(private userdata:UserDataService,private router:Router, private currStudent:CurrentStudentService,private domsanitize:DomSanitizer) { }
 
   ngOnInit(): void {
@@ -28,6 +29,7 @@ export class StudentBioComponent implements OnInit {
             'data:image/jpg;base64, ' + base64String
           );
         }
+        this.loading=false;
       },
       err=>{
         console.log(err);

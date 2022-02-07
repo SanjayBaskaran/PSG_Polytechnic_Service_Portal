@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="!loading">
   <table>
 
     <tr>
@@ -20,3 +20,9 @@
      </tr>
  </table>
 </div>
+<img
+  src="assets/loading.gif"
+  style="height: 20vh"
+  class="loading"
+  *ngIf="loading"
+/>

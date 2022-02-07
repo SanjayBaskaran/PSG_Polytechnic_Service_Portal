@@ -15,6 +15,7 @@ export class StudentLoginComponent implements OnInit ,OnDestroy,OnChanges{
   @ViewChild("f") form:any;
   constructor(private userData:UserDataService,private router:Router,) {
   }
+  loading:boolean = false;
   enableLogin:boolean = true;
   ngOnInit(): void {
     setInterval(()=>{
@@ -44,15 +45,18 @@ export class StudentLoginComponent implements OnInit ,OnDestroy,OnChanges{
     this.userData.login({rno:this.form.value.username,password:this.form.value.password}).subscribe(
       (data:any)=>{
         localStorage.setItem("token",data.token);
+        this.loading=false;
         this.router.navigate(["student"]);
       },
       err=>{
         alert("Invalid username or password");
+        this.loading=false;
       }
     );
 
   }
   onSubmit(){
+    this.loading=true;
     this.login();
   }
 }

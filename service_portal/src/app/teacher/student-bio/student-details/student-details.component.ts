@@ -11,13 +11,14 @@ import { CurrentStudentService } from 'src/app/current-student.service';
 export class StudentDetailsComponent implements OnInit {
   studentBio:any;
   image:any;
+  loading:boolean=true;
   constructor(private domsanitizer:DomSanitizer, private currStudent:CurrentStudentService,private router:Router) { }
 
   ngOnInit(): void {
 
       this.studentBio=this.currStudent.student;
-      console.log("TEST");
-      console.log(this.studentBio);
+      // console.log(this.studentBio);
+      this.loading=false;
       let TYPED_ARRAY = new Uint8Array(this.studentBio.photo.data);
         const STRING_CHAR = TYPED_ARRAY.reduce((data, byte)=> {
           return data + String.fromCharCode(byte);

@@ -11,6 +11,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class StudentProfileComponent implements OnInit,OnDestroy {
   studentbio:any;
   image:any;
+  loading:boolean=true;
   userDatafetcher:any;
   constructor(private userData:UserDataService,private router:Router,private domsantizer:DomSanitizer) {
     this.studentbio = {"rno": "", "stud_name": "", "gender": "", "dob": "", "stud_address": "", "stud_pass": "", "photo":new Blob(),"stud_mobile":0,"stud_email":"","father_name":"","mother_name":"","year_of_joining":0,"year_of_passing":0,"batch_id":"","dept_id":"","programme_name":""};
@@ -26,7 +27,7 @@ export class StudentProfileComponent implements OnInit,OnDestroy {
           }, '');
           let base64String = btoa(STRING_CHAR);
           this.image = this.domsantizer.bypassSecurityTrustUrl("data:image/jpg;base64, " + base64String);
-
+          this.loading=false;
       },
       error=>{
         this.router.navigate(["/login"]);

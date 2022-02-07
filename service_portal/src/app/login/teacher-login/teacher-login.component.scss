@@ -1,9 +1,6 @@
 form{
   margin-top: 10%;
   height: 100%;
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
-  row-gap: 2rem;
   input[disabled]{
     cursor:not-allowed;
   }
@@ -84,5 +81,10 @@ border-image-slice: 1;
 /* reset input */
 .form__field{
 &:required,&:invalid { box-shadow:none; }
+}
+.loading{
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
 }
 /* demo */

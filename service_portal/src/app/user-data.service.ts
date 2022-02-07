@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserDataService {
+  loading:boolean=false;
   constructor(private http:HttpClient,private router:Router) {}
   login(student:{rno:String,password:String}){
     return this.http.post("http://localhost:3000/api/login/student",student);

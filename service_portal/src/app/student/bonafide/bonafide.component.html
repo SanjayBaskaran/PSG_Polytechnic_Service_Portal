@@ -1,4 +1,4 @@
-<div class="content">
+<div class="content" *ngIf="!loading">
     <form action="" (ngSubmit)='onSubmit(f)' #f='ngForm'>
         <table>
             <tr>
@@ -35,3 +35,9 @@
         <input type="submit" value="Request">
     </form>
 </div>
+<img
+  src="assets/loading.gif"
+  style="height: 20vh"
+  class="loading"
+  *ngIf="loading"
+/>

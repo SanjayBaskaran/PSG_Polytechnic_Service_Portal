@@ -11,6 +11,7 @@ import { BonafideService } from 'src/app/bonafide.service';
 })
 export class BonafideComponent implements OnInit {
   studentbio:any;
+  loading:boolean=true;
   constructor(private userData:UserDataService,private router:Router, private bonafideRequest:BonafideService) {
     this.studentbio = {"rno": "", "stud_name": "", "gender": "", "dob": "", "stud_address": "", "stud_pass": "", "photo":new Blob(),"stud_mobile":0,"stud_email":"","father_name":"","mother_name":"","year_of_joining":0,"year_of_passing":0,"batch_id":"","dept_id":"","programme_name":""};
    }
@@ -39,6 +40,7 @@ export class BonafideComponent implements OnInit {
     this.userData.authCheck().subscribe(
       data=>{
         this.studentbio = data;
+        this.loading=false;
       },
       err=>{
         this.router.navigate(["/login"]);

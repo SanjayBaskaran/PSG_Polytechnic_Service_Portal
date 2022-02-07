@@ -11,7 +11,7 @@ import { UserDataService } from 'src/app/user-data.service';
 export class TeacherLoginComponent implements OnInit {
   @ViewChild('f') form!:NgForm;
   constructor(private userData:UserDataService,private router:Router) { }
-
+  loading:boolean = false;
   ngOnInit(): void {
     this.userData.authCheckTeacher().subscribe(
       data=>{
@@ -25,15 +25,18 @@ export class TeacherLoginComponent implements OnInit {
     this.userData.teacherLogin({staff_id:this.form.value.staff_id,password:this.form.value.password}).subscribe(
       (data:any)=>{
         localStorage.setItem("token",data.token);
+        this.loading=false;
         this.router.navigate(["teacher"]);
       },
       err=>{
         alert("Invalid username or password");
+        this.loading=false;
       }
     );
 
   }
   onSubmit(){
+    this.loading=true;
     this.login();
   }
 

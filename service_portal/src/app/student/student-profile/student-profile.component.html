@@ -1,4 +1,4 @@
-<div class="content">
+<div class="content" *ngIf="!loading">
   <img [src]="image" alt="">
   <div class="heading"><h1>Student Details</h1></div>
   <table>
@@ -53,3 +53,9 @@
       </tr>
   </table>
 </div>
+<img
+  src="assets/loading.gif"
+  style="height: 20vh"
+  class="loading"
+  *ngIf="loading"
+/>

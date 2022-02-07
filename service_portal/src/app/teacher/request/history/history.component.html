@@ -1,6 +1,6 @@
-<div>
+<div *ngIf="!loading">
     <table>
-  
+
       <tr>
           <th>ROLL NO</th>
           <th>STUDENT NAME</th>
@@ -9,7 +9,7 @@
           <th>REQUESTED ON</th>
           <th>APPROVAL</th>
         </tr>
-  
+
        <tr *ngFor="let historyRequest of historyRequests">
            <td>{{historyRequest.rno}}</td>
            <td>{{historyRequest.stud_name}}</td>
@@ -20,3 +20,9 @@
            </tr>
    </table>
   </div>
+  <img
+  src="assets/loading.gif"
+  style="height: 20vh"
+  class="loading"
+  *ngIf="loading"
+/>
