@@ -1,41 +1,51 @@
-div{
-    overflow-x: hidden;
-      #nav{
-        width: 100%;
-        overflow: hidden;
-        .buttons{
-          position: relative;
-          display: flex;
-          justify-content: flex-end;
-          align-content: center;
-          align-items: center;
-          div{
-            img{
-              width: 2rem;
-            }
-          }
+div {
+  overflow-x: hidden;
+  #nav {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-end;
+    .buttons {
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      align-content: center;
+      align-items: center;
+      padding-top: 1rem;
+      padding-right: 1rem;
+      @media (max-width: 800px) {
+        flex-direction: column;
+        align-self: flex-end;
+      }
+      div {
+        img {
+          width: 2rem;
         }
       }
-      div{
-          .container{
-              display: flex;
-              flex-direction: row;
-              align-items: center;
-              justify-content: center;
-              column-gap: 2rem;
-              flex-wrap: wrap;
-              row-gap: 2rem;
-              .item{
-                .card {
-                  display: flex;
-                  flex-direction: column;
-                  justify-content: center;
-                  align-items: center;
-                  box-shadow: 0px 4px 2px rgb(0, 0, 0);
-                  padding: 16px;
-                }
-              }
-          }
-      }
+    }
   }
-  
+  div {
+    .container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      column-gap: 2rem;
+      flex-wrap: wrap;
+      row-gap: 2rem;
+      .item {
+        box-shadow: 0px 4px 1px black,
+                  2px 4px 2px black;
+        .card {
+          border: .2px solid black;
+          width: 150px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+          padding: 5px;
+        }
+      }
+    }
+  }
+}

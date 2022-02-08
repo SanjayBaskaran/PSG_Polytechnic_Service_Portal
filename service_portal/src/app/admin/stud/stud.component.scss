@@ -34,12 +34,13 @@ div{
             flex-wrap: wrap;
             row-gap: 2rem;
             .item{
+              box-shadow: 1px 1px 4px black;
               .card {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                box-shadow: 0px 4px 2px rgb(0, 0, 0);
+                border: .2px solid black;
                 padding: 16px;
                 img {
                   width: 150px;
