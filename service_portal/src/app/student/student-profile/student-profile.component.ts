@@ -30,7 +30,7 @@ export class StudentProfileComponent implements OnInit,OnDestroy {
           this.loading=false;
       },
       error=>{
-        this.router.navigate(["/login"]);
+        this.router.navigate(["/login"]); 
       }
     );
   }
