@@ -12,6 +12,7 @@ import { CurrentStudentService } from 'src/app/current-student.service';
 export class StudentBioComponent implements OnInit {
   students: any;
   restructuredStudents:any;
+  dept:any;
   image: Array<any> = [];
   loading: boolean = true;
   constructor(private userdata: UserDataService, private router: Router, private currStudent: CurrentStudentService, private domsanitize: DomSanitizer) { }
@@ -21,21 +22,29 @@ export class StudentBioComponent implements OnInit {
       (data: any) => {
         this.students = data;
         this.restructuredStudents = {};
+        console.log(data);
         this.students.forEach(
           (element:any) => {
             if (!this.restructuredStudents[element.dept_id]) {
-              this.restructuredStudents[element.dept_id] = {};
+              this.restructuredStudents[element.dept_id] = [];
             }
             if (!this.restructuredStudents[element.dept_id][element.programme_name]) {
-              this.restructuredStudents[element.dept_id][element.programme_name] = {};
+              this.restructuredStudents[element.dept_id][element.programme_name] = [];
             }
             if (!this.restructuredStudents[element.dept_id][element.programme_name][element.batch_id]) {
-              this.restructuredStudents[element.dept_id][element.programme_name][element.batch_id] = {};
+              this.restructuredStudents[element.dept_id][element.programme_name][element.batch_id] = [];
             }
             if (!this.restructuredStudents[element.dept_id][element.programme_name][element.batch_id][element.rno]) {
-              this.restructuredStudents[element.dept_id][element.programme_name][element.batch_id][element.rno] = {};
+              this.restructuredStudents[element.dept_id][element.programme_name][element.batch_id][element.rno] = [];
             }
-            this.restructuredStudents[element.dept_id][element.programme_name][element.batch_id][element.rno] = element;
+            let studentData = element;
+            let batch = this.restructuredStudents[element.dept_id][element.programme_name][element.batch_id];
+            batch.push(element);
+            let programme =  this.restructuredStudents[element.dept_id][element.programme_name];
+            programme.push(batch);
+            let dept = this.restructuredStudents[element.dept_id];
+            dept.push(programme);
+            this.restructuredStudents.push(dept);
           }
         );
         console.log(this.restructuredStudents);
