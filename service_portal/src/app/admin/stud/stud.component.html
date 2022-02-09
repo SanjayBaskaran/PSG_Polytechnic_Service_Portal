@@ -15,23 +15,25 @@
   <div>
     <div class="container">
       <div class="dept" *ngFor="let dept of restructuredStudents;let indexEle = index;">
-        {{dept.dept}}<br/>
-        <div *ngFor="let programme of dept.data">
-          {{programme.program}}<br/>
-          <div *ngFor="let batch of programme.data">
-            {{batch.batch}}<br/>
-            <div *ngFor="let student of batch.data">
-              <div class="card">
-                <div>
-                  <h4>
-                    <b>{{ student.stud_name }}</b>
-                  </h4>
-                  <p>
-                    {{ student.rno }}
-                  </p>
+        <p id="dname">{{dept.dept}}</p>
+        <div class = "programme" *ngFor="let programme of dept.data">
+          <p id="pname">{{programme.program}}</p>
+          <div class= "batch" *ngFor="let batch of programme.data">
+            <p id="bname">{{batch.batch}}</p>
+            <div class="student">
+              <div class = "item" *ngFor="let student of batch.data; let indexEl=index">
+                <div class="card">
+                    <img [src]="student.imageX" alt="">
+                    <h4>
+                      <b>{{ student.stud_name }}</b>
+                    </h4>
+                    <p>
+                      {{ student.rno }}
+                    </p>
                 </div>
               </div>
             </div>
+
           </div>
           <br>
         </div>

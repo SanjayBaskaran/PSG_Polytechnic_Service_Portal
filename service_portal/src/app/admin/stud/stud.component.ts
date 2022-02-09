@@ -22,16 +22,6 @@ export class StudComponent implements OnInit {
     this.admindata.student().subscribe(
       (data: any) => {
         this.studentInfo = data;
-        for (let i = 0; i < this.studentInfo.length; i++) {
-          let TYPED_ARRAY = new Uint8Array(data[i].photo.data);
-          const STRING_CHAR = TYPED_ARRAY.reduce((data, byte) => {
-            return data + String.fromCharCode(byte);
-          }, '');
-          let base64String = btoa(STRING_CHAR);
-          this.image[i] = this.domsanitizer.bypassSecurityTrustUrl(
-            'data:image/jpg;base64, ' + base64String
-          );
-        }
         console.log(data);
         this.restructuredStudents = {};
         data.forEach((element:any) => {
@@ -44,6 +34,14 @@ export class StudComponent implements OnInit {
           if (!this.restructuredStudents[element.dept_id][element.programme_name][element.batch_id]) {
             this.restructuredStudents[element.dept_id][element.programme_name][element.batch_id] = [];
           }
+          let TYPED_ARRAY = new Uint8Array(element.photo.data);
+          const STRING_CHAR = TYPED_ARRAY.reduce((data, byte) => {
+            return data + String.fromCharCode(byte);
+          }, '');
+          let base64String = btoa(STRING_CHAR);
+          element.imageX = this.domsanitizer.bypassSecurityTrustUrl(
+            'data:image/jpg;base64, ' + base64String
+          );
           this.restructuredStudents[element.dept_id][element.programme_name][element.batch_id].push(element);
         });
         console.log(this.restructuredStudents);
