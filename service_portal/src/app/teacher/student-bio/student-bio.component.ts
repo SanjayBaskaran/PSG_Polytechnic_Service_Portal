@@ -12,38 +12,50 @@ import { CurrentStudentService } from 'src/app/current-student.service';
 export class StudentBioComponent implements OnInit {
   students: any;
   restructuredStudents: any;
-  dept: any;
+  //dept: any;
   image: Array<any> = [];
   loading: boolean = true;
+  studentX:any;
   constructor(
     private userdata: UserDataService,
     private router: Router,
     private currStudent: CurrentStudentService,
-    private domsanitize: DomSanitizer
+    private domsanitizer: DomSanitizer
   ) {}
 
   ngOnInit(): void {
     this.userdata.studentBio().subscribe(
       (data: any) => {
         this.students = data;
-
+        this.restructuredStudents = {};
+        this.studentX = {};
         data.forEach((element:any) => {
           if (!this.restructuredStudents[element.dept_id]) {
             this.restructuredStudents[element.dept_id] = {};
+            this.studentX[element.dept_id] = {};
           }
           if (!this.restructuredStudents[element.dept_id][element.programme_name]) {
             this.restructuredStudents[element.dept_id][element.programme_name] = {};
+            this.studentX[element.dept_id][element.programme_name] = {};
           }
           if (!this.restructuredStudents[element.dept_id][element.programme_name][element.batch_id]) {
-            this.restructuredStudents[element.dept_id][element.programme_name][
-              element.batch_id
-            ] = [];
+            this.restructuredStudents[element.dept_id][element.programme_name][element.batch_id] = [];
+            this.studentX[element.dept_id][element.programme_name][element.batch_id] = [];
           }
+          let TYPED_ARRAY = new Uint8Array(element.photo.data);
+          const STRING_CHAR = TYPED_ARRAY.reduce((data, byte) => {
+            return data + String.fromCharCode(byte);
+          }, '');
+          let base64String = btoa(STRING_CHAR);
+          element.imageX = this.domsanitizer.bypassSecurityTrustUrl(
+            'data:image/jpg;base64, ' + base64String
+          );
           this.restructuredStudents[element.dept_id][element.programme_name][
             element.batch_id
           ].push(element);
         });
         console.log(this.restructuredStudents);
+        this.studentX = this.restructuredStudents;
         let datax = Object.keys(this.restructuredStudents).map((keydept, indexdept) => {
           return {
             dept: keydept,
@@ -64,17 +76,8 @@ export class StudentBioComponent implements OnInit {
             ),
           };
         });
+        this.restructuredStudents = datax;
         console.log(datax);
-        for (let i = 0; i < this.students.length; i++) {
-          let TYPED_ARRAY = new Uint8Array(data[i].photo.data);
-          const STRING_CHAR = TYPED_ARRAY.reduce((data, byte) => {
-            return data + String.fromCharCode(byte);
-          }, '');
-          let base64String = btoa(STRING_CHAR);
-          this.image[i] = this.domsanitize.bypassSecurityTrustUrl(
-            'data:image/jpg;base64, ' + base64String
-          );
-        }
         this.loading = false;
       },
       (err) => {
@@ -82,9 +85,9 @@ export class StudentBioComponent implements OnInit {
       }
     );
   }
-  studentBio(index: number) {
-    console.log(this.students[index]);
-    this.currStudent.student = this.students[index];
+  studentBio(dept:string,programme:string,batch:string,index:number) {
+    console.log(this.studentX[dept][programme][batch][index]);
+    this.currStudent.student = this.studentX[dept][programme][batch][index];
     this.router.navigate(['teacher/studentdetails']);
   }
 }

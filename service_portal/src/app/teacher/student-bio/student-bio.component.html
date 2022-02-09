@@ -1,5 +1,5 @@
-<div class="container" *ngIf="!loading">
-  <!-- <div class="item" *ngFor="let student of students; let indexEle = index">
+<!-- <div class="container" *ngIf="!loading"> -->
+<!-- <div class="item" *ngFor="let student of students; let indexEle = index">
     <div class="card" (click)="studentBio(indexEle)">
       <img [src]="image[indexEle]" alt="" />
       <div>
@@ -12,13 +12,44 @@
       </div>
     </div>
   </div> -->
-  <div *ngFor="let dept of restructuredStudents;let indexEle=index">
+<!-- <div *ngFor="let dept of restructuredStudents;let indexEle=index">
     <div *ngFor="let programme of dept">
         <div *ngFor="let batch of programme">
             <div *ngFor="let student of batch">
             </div>
         </div>
       </div>
+  </div>
+</div> -->
+<div>
+  <div>
+    <div class="container">
+      <div class="dept" *ngFor="let dept of restructuredStudents">
+        <p id="dname">{{ dept.dept }}</p>
+        <div class="programme" *ngFor="let programme of dept.data">
+          <p id="pname">{{ programme.program }}</p>
+          <div class="batch" *ngFor="let batch of programme.data">
+            <p id="bname">{{ batch.batch }}</p>
+            <div class="student">
+              <div class="item" *ngFor="let student of batch.data;let indexEle=index;">
+                <div class="card" (click)="studentBio(dept.dept,programme.program,batch.batch,indexEle)">
+                  <img [src]="student.imageX" alt="" />
+                  <h4>
+                    <b>{{ student.stud_name }}</b>
+                  </h4>
+                  <p>
+                    {{ student.rno }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br />
+        </div>
+        <br />
+      </div>
+      <br />
+    </div>
   </div>
 </div>
 <img
