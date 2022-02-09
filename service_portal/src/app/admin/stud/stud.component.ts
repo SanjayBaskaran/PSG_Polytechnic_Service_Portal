@@ -10,6 +10,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class StudComponent implements OnInit {
   studentInfo: any;
+  restructuredStudents:any;
   image: Array<any> = [];
   constructor(
     private admindata: AdminService,
@@ -32,6 +33,41 @@ export class StudComponent implements OnInit {
           );
         }
         console.log(data);
+        this.restructuredStudents = {};
+        data.forEach((element:any) => {
+          if (!this.restructuredStudents[element.dept_id]) {
+            this.restructuredStudents[element.dept_id] = {};
+          }
+          if (!this.restructuredStudents[element.dept_id][element.programme_name]) {
+            this.restructuredStudents[element.dept_id][element.programme_name] = {};
+          }
+          if (!this.restructuredStudents[element.dept_id][element.programme_name][element.batch_id]) {
+            this.restructuredStudents[element.dept_id][element.programme_name][element.batch_id] = [];
+          }
+          this.restructuredStudents[element.dept_id][element.programme_name][element.batch_id].push(element);
+        });
+        console.log(this.restructuredStudents);
+        let datax = Object.keys(this.restructuredStudents).map((keydept, indexdept) => {
+          return {
+            dept: keydept,
+            data: Object.keys(this.restructuredStudents[keydept]).map(
+              (keyprogramme, indexprogramme) => {
+                return {
+                  program: keyprogramme,
+                  data: Object.keys(this.restructuredStudents[keydept][keyprogramme]).map(
+                    (keybatch, indexbatch) => {
+                      return {
+                        batch: keybatch,
+                        data: this.restructuredStudents[keydept][keyprogramme][keybatch],
+                      };
+                    }
+                  ),
+                };
+              }
+            ),
+          };
+        });
+        console.log(datax);
       },
       (err) => {
         this.router.navigate(['adminLogin']);
