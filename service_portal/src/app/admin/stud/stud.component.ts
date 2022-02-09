@@ -67,6 +67,7 @@ export class StudComponent implements OnInit {
             ),
           };
         });
+        this.restructuredStudents = datax;
         console.log(datax);
       },
       (err) => {

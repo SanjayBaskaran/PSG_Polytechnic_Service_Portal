@@ -26,31 +26,7 @@ div{
     }
     div{
         .container{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            column-gap: 2rem;
-            flex-wrap: wrap;
-            row-gap: 2rem;
-            .item{
-              box-shadow: 1px 1px 4px black;
-              .card {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                border: .2px solid black;
-                padding: 16px;
-                img {
-                  width: 150px;
-                  height: 150px;
-                  padding: 0%;
-                  object-fit: cover;
-                  border-radius: 10rem;
-                }
-              }
-            }
+            
         }
     }
 }

@@ -1,30 +1,43 @@
 <div>
-    <div id="nav">
-      <div class="buttons">
-        <div class="insert">
-          <img src="assets/icons/add.png" alt="">
-        </div>
-        <div class="edit">
-          <img src="assets/icons/update.png" alt="">
-        </div>
-        <div class="delete">
-          <img src="assets/icons/delete.png" alt="">
-        </div>
+  <div id="nav">
+    <div class="buttons">
+      <div class="insert">
+        <img src="assets/icons/add.png" alt="">
+      </div>
+      <div class="edit">
+        <img src="assets/icons/update.png" alt="">
+      </div>
+      <div class="delete">
+        <img src="assets/icons/delete.png" alt="">
       </div>
     </div>
-    <div>
-        <div class="container">
-            <div class="item" *ngFor="let student of studentInfo;let indexEle = index;">
-                <div class="card">
-                    <img [src]="image[indexEle]" alt="">
-                    <div>
-                        <h4><b>{{student.stud_name}}</b></h4>
-                        <p>
-                            {{student.rno}}
-                        </p>
-                    </div>
+  </div>
+  <div>
+    <div class="container">
+      <div class="dept" *ngFor="let dept of restructuredStudents;let indexEle = index;">
+        {{dept.dept}}<br/>
+        <div *ngFor="let programme of dept.data">
+          {{programme.program}}<br/>
+          <div *ngFor="let batch of programme.data">
+            {{batch.batch}}<br/>
+            <div *ngFor="let student of batch.data">
+              <div class="card">
+                <div>
+                  <h4>
+                    <b>{{ student.stud_name }}</b>
+                  </h4>
+                  <p>
+                    {{ student.rno }}
+                  </p>
                 </div>
+              </div>
             </div>
+          </div>
+          <br>
         </div>
+        <br>
+      </div>
+      <br>
     </div>
+  </div>
 </div>
