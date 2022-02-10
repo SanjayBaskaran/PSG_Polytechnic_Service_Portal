@@ -14,17 +14,14 @@
   </div>
   <div>
     <div class="container">
-      <div class="item" *ngFor="let teacher of teacherInfo">
-        <div class="card">
-          <div>
-            <h4>
-              <b>{{ teacher.staff_name }}</b>
-            </h4>
-          </div>
-          <div>
-            <p>
-              {{ teacher.staff_id }}
-            </p>
+      <div *ngFor="let dept of teacherInfo">
+        <div class="dept">{{ dept.dept }}</div>
+        <div class="staffs">
+          <div class="item" *ngFor="let staff of dept.data">
+            <div class="card">
+              <div>{{ staff.staff_id }}</div>
+              <div>{{ staff.staff_name }}</div>
+            </div>
           </div>
         </div>
       </div>
