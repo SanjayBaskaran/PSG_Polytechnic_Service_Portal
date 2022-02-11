@@ -34,4 +34,7 @@ export class ResponsesComponent implements OnInit {
          }
     )
   }
+  generatePDF(bonafideId:number){
+
+  }
 }

@@ -59,7 +59,8 @@ div {
               display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
-                justify-content: center;
+                padding: 3%;
+                justify-content: flex-start;
                 align-items: center;
               .item {
                 .card {

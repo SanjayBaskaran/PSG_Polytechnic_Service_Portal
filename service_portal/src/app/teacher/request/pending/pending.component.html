@@ -16,8 +16,9 @@
       <td>{{ pendingRequest.comment }}</td>
       <td>{{ pendingRequest.request }}</td>
       <td>
-        <button (click)="acceptRequest(pendingRequest)">Accept</button>
-        <button (click)="rejectRequest(pendingRequest)">Reject</button>
+        <button (click)="acceptRequest(pendingRequest)" *ngIf="pendingRequest.status[0]!='Y'">Accept</button>
+        <button (click)="rejectRequest(pendingRequest)" *ngIf="pendingRequest.status[0]!='Y'">Reject</button>
+        <button  *ngIf="pendingRequest.status[0]=='Y'" class="waiting" disabled>Waiting</button>
       </td>
     </tr>
   </table>

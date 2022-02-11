@@ -16,7 +16,10 @@
          <td>{{response.comment}}</td>
          <td>{{response.request}}</td>
          <td>{{response.status}}</td>
-         <td>Download PDF</td>
+         <td>
+           <button (click)="generatePDF(responses.bonafide_id)" *ngIf="response.status == 'YYY' || response.status == 'yyy'">Download PDF</button>
+           <a (click)="generatePDF(responses.bonafide_id)" *ngIf="response.status != 'YYY' && response.status != 'yyy'">PDF Not ready</a>
+        </td>
      </tr>
  </table>
 </div>

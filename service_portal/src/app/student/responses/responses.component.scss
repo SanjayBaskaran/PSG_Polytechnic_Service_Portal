@@ -1,38 +1,45 @@
-div{
-  @media (max-width:800px) {
-
+div {
+  @media (max-width: 800px) {
     padding: 2rem 0rem;
   }
   padding: 1rem 3rem;
   position: relative;
-  table{
+  table {
     width: 100%;
     border: 2px solid #058ed9;
-    border-radius: .7rem;
+    border-radius: 0.7rem;
     position: relative;
-    tr{
+    tr {
       line-height: 2rem;
 
-      th{
+      th {
         background-color: #058ed9;
         color: white;
         padding: 1rem 0rem;
       }
-      td{
+      td {
         padding: 1rem 0rem;
         text-align: center;
       }
-      th:nth-child(1){
-        border-top-left-radius: .7rem;
+      th:nth-child(1) {
+        border-top-left-radius: 0.7rem;
       }
-      th:nth-child(6){
-        border-top-right-radius: .7rem;
+      th:nth-child(6) {
+        border-top-right-radius: 0.7rem;
       }
     }
   }
-
+  button {
+    width: auto;
+    padding: 5px 5px;
+    font-size: 1rem;
+    background-color: #058ed9;
+    border: 0px;
+    color: white;
+    border-radius: 0.7rem;
+  }
 }
-.loading{
+.loading {
   position: relative;
   left: 50%;
   transform: translate(-50%);

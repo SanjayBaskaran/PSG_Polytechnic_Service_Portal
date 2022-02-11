@@ -49,6 +49,19 @@ div {
           padding: 4% 8% ;
           font-size: 0.8rem;
         }
+        button.waiting {
+          background-color: rgb(0, 0, 53);
+          color: white;
+          border: 1px solid rgb(0, 0, 58);
+          border-radius: 0.4rem;
+          margin: 2%;
+          padding: 4% 8%;
+          font-size: 0.8rem;
+        }
+        button.waiting:hover{
+          background-color: rgb(0, 0, 53);
+          color: white;
+        }
         button:hover{
           color: black;
           background-color: white;
