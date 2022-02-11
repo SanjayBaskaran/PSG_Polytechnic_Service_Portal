@@ -62,7 +62,8 @@ router.get("/pending", (req, res, next) => {
       con.query(query, function (err, result, fields) {
         if (err) throw err;
         if (result.length > 0) {
-          res.json(result);
+          let data = {result:result,designation:'hod'}
+          res.json(data);
         } else {
           res.status(401).json({ message: "Invalid User" });
         }
@@ -72,12 +73,30 @@ router.get("/pending", (req, res, next) => {
       let query = "SELECT student.stud_name,pending.* FROM (SELECT * FROM bonafide WHERE rno IN (SELECT rno FROM student WHERE batch_id=(SELECT batch_id FROM batch WHERE tutor_id='" + req.userData + "' AND status!='YYY') ORDER BY request DESC)) as pending join student on pending.rno=student.rno;";
       con.query(query, function (err, result, fields) {
         if (err) throw err;
-        res.json(result);
+        let data = {result:result,designation:'tutor'};
+          res.json(data);
       })
     }
     else {
       res.status(401).json({ message: "Invalid User" });
     }
+  });
+});
+router.post("/accept", (req, res, next) => {
+  try {
+    let token = req.headers.authentication;
+    var data = jwt.verify(token, "SECRET_CODE_USER_LOGIN");
+    req.userData = data.staff_id;
+    next();
+  } catch (error) {
+    console.log("Error");
+    res.status(401).json({ "Auth": false });
+  }
+}, (req, res) => {
+  let query = "UPDATE bonafide SET status='"+req.body.status+"' WHERE bonafide_id="+req.body.bonafideId+"";
+  con.query(query, function (err, result, fields) {
+    if (err) throw err;
+    res.json({"message":"Updated the bonafide"});
   });
 });
 
@@ -100,7 +119,8 @@ router.get("/history", (req, res, next) => {
       con.query(query, function (err, result, fields) {
         if (err) throw err;
         if (result.length > 0) {
-          res.json(result);
+          let data = {result:result,designation:'hod'}
+          res.json(data);
         } else {
           res.status(401).json({ message: "Invalid User" });
         }
@@ -110,7 +130,8 @@ router.get("/history", (req, res, next) => {
       let query = "SELECT student.stud_name,history.* FROM  (SELECT * FROM bonafide WHERE rno IN (SELECT rno FROM student WHERE batch_id=(SELECT batch_id FROM batch WHERE tutor_id='" + req.userData + "') ORDER BY request DESC))as history join student on history.rno=student.rno;";
       con.query(query, function (err, result, fields) {
         if (err) throw err;
-        res.json(result);
+        let data = {result:result,designation:'tutor'}
+        res.json(data);
       })
     }
     else {

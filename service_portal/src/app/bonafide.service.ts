@@ -20,4 +20,7 @@ export class BonafideService {
   history(){
     return this.http.get('http://localhost:3000/api/bonafide/history');
   }
+  accept(bonafideId:number,status:string){
+    return this.http.post('http://localhost:3000/api/bonafide/accept',{bonafideId:bonafideId,status:status});
+  }
 }

@@ -14,7 +14,7 @@ export class HistoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.bonafide.history().subscribe((data:any)=>{
-    this.historyRequests=data;
+    this.historyRequests=data.result;
     this.loading=false;
     console.log(data);
   },err=>{

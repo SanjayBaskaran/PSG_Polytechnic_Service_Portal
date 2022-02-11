@@ -1,26 +1,28 @@
 <div *ngIf="!loading">
-    <table>
+  <table>
+    <tr>
+      <th>ROLL NO</th>
+      <th>STUDENT NAME</th>
+      <th>REASON</th>
+      <th>COMMENT</th>
+      <th>REQUESTED ON</th>
+      <th>APPROVAL</th>
+    </tr>
 
-      <tr>
-          <th>ROLL NO</th>
-          <th>STUDENT NAME</th>
-          <th>REASON</th>
-          <th>COMMENT</th>
-          <th>REQUESTED ON</th>
-          <th>APPROVAL</th>
-        </tr>
-
-       <tr *ngFor="let pendingRequest of pendingRequests">
-           <td>{{pendingRequest.rno}}</td>
-           <td>{{pendingRequest.stud_name}}</td>
-           <td>{{pendingRequest.reason}}</td>
-           <td>{{pendingRequest.comment}}</td>
-           <td>{{pendingRequest.request}}</td>
-           <td>YES/NO</td>
-           </tr>
-   </table>
-  </div>
-  <img
+    <tr *ngFor="let pendingRequest of pendingRequests">
+      <td>{{ pendingRequest.rno }}</td>
+      <td>{{ pendingRequest.stud_name }}</td>
+      <td>{{ pendingRequest.reason }}</td>
+      <td>{{ pendingRequest.comment }}</td>
+      <td>{{ pendingRequest.request }}</td>
+      <td>
+        <button (click)="acceptRequest(pendingRequest)">Accept</button>
+        <button (click)="rejectRequest(pendingRequest)">Reject</button>
+      </td>
+    </tr>
+  </table>
+</div>
+<img
   src="assets/loading.gif"
   style="height: 20vh"
   class="loading"
