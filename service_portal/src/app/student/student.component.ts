@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { QRCodeModule } from 'angular2-qrcode';
 @Component({
   selector: 'app-student',
   templateUrl: './student.component.html',

@@ -17,8 +17,13 @@
          <td>{{response.request}}</td>
          <td>{{response.status}}</td>
          <td>
-           <button (click)="generatePDF(responses.bonafide_id)" *ngIf="response.status == 'YYY' || response.status == 'yyy'">Download PDF</button>
-           <a (click)="generatePDF(responses.bonafide_id)" *ngIf="response.status != 'YYY' && response.status != 'yyy'">PDF Not ready</a>
+           <button (click)="generatePDF(response.bonafide_id)" *ngIf="response.status == 'YYY' || response.status == 'yyy'">Download PDF</button>
+           <a  *ngIf="response.status != 'YYY' && response.status != 'yyy'">PDF Not ready</a>
+          
+           <div [id]="'qr' + response.bonafide_id" style="position: absolute;top:-100vh;">
+            <qrcode [qrdata]="'name'" size="0"></qrcode>
+          </div>
+
         </td>
      </tr>
  </table>
