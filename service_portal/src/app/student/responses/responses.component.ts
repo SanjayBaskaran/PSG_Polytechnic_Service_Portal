@@ -83,10 +83,10 @@ export class ResponsesComponent implements OnInit {
     const qrc=document.getElementById(bid);
     console.log(qrc);
     html2canvas(qrc as any).then(canvas =>{
-      const imgWidth = 200;
+      const imgWidth = 100;
       const imgHeight = canvas.height * imgWidth / canvas.width;
       const contentDataURL=canvas.toDataURL('image/png');
-      doc.addImage(contentDataURL,'png',50,180,imgWidth, imgHeight);
+      doc.addImage(contentDataURL,'png',55,180,imgWidth, imgHeight);
       doc.save(this.studentBio.rno+'.pdf');
     });
     //doc.save(this.studentBio.rno+'.pdf');
