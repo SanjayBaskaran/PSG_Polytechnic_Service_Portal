@@ -11,7 +11,8 @@ div {
     position: relative;
     tr {
       line-height: 2rem;
-
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
       th {
         background-color: #058ed9;
         color: white;
@@ -43,4 +44,7 @@ div {
   position: relative;
   left: 50%;
   transform: translate(-50%);
+}
+span{
+  color: #058ed9;
 }

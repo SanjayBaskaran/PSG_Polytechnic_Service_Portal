@@ -37,7 +37,9 @@ import { StaffComponent } from './admin/staff/staff.component';
 import { BatchComponent } from './admin/batch/batch.component';
 import { BonafideDetailsComponent } from './admin/bonafide-details/bonafide-details.component';
 import { InsertstudentComponent } from './admin/stud/insertstudent/insertstudent.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatStepperModule } from '@angular/material/stepper';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +75,10 @@ import { InsertstudentComponent } from './admin/stud/insertstudent/insertstudent
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    QRCodeModule
+    QRCodeModule,
+    BrowserAnimationsModule,
+    MatExpansionModule,
+    MatStepperModule
   ],
   providers: [UserDataService,{provide:HTTP_INTERCEPTORS,useClass:TokenHeaderInterceptorService,multi:true},BonafideService],
   bootstrap: [AppComponent,]

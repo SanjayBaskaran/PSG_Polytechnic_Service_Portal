@@ -1,32 +1,24 @@
 <div *ngIf="!loading">
-  <table>
+ <mat-expansion-panel *ngFor="let response of responses">
+     <mat-expansion-panel-header>
+         <mat-panel-title>
+        <tr style="list-style: none;display: grid;grid-template-columns: 1fr 1fr 1fr 1fr 1fr;">
+          <td><span>REASON</span><br> {{response.reason}}</td>
+          <td><span>TYPE</span> <br>{{response.type}}</td>
+          <td><span>COMMENT</span> <br>{{response.comment}}</td>
+          <td><span>REQUESTED ON</span><br> {{response.request}}</td>
+          <td><span>DOWNLOAD PDF</span> <br><button (click)="generatePDF(response.bonafide_id)" *ngIf="response.status == 'YYY' || response.status == 'yyy'">Download PDF</button>
+            <a  *ngIf="response.status != 'YYY' && response.status != 'yyy'">PDF Not ready</a>
 
-    <tr>
-        <th>REASON</th>
-        <th>TYPE</th>
-        <th>COMMENT</th>
-        <th>REQUESTED ON</th>
-        <th>VERIFICATION STATUS</th>
-        <th>DOWNLOAD PDF</th>
-      </tr>
+            <div [id]="'qr' + response.bonafide_id" style="position: absolute;top:-100vh;">
+             <qrcode [qrdata]="'name'" size="0"></qrcode>
+           </div></td>
+        </tr>
+         </mat-panel-title>
+         <mat-panel-description></mat-panel-description>
+     </mat-expansion-panel-header>
 
-     <tr *ngFor="let response of responses">
-         <td>{{response.reason}}</td>
-         <td>{{response.type}}</td>
-         <td>{{response.comment}}</td>
-         <td>{{response.request}}</td>
-         <td>{{response.status}}</td>
-         <td>
-           <button (click)="generatePDF(response.bonafide_id)" *ngIf="response.status == 'YYY' || response.status == 'yyy'">Download PDF</button>
-           <a  *ngIf="response.status != 'YYY' && response.status != 'yyy'">PDF Not ready</a>
-          
-           <div [id]="'qr' + response.bonafide_id" style="position: absolute;top:-100vh;">
-            <qrcode [qrdata]="'name'" size="0"></qrcode>
-          </div>
-
-        </td>
-     </tr>
- </table>
+ </mat-expansion-panel>
 </div>
 <img
   src="assets/loading.gif"
