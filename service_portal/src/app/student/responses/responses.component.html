@@ -1,24 +1,32 @@
 <div *ngIf="!loading">
+  <mat-accordion class="example-headers-align">
  <mat-expansion-panel *ngFor="let response of responses">
-     <mat-expansion-panel-header>
-         <mat-panel-title>
-        <tr style="list-style: none;display: grid;grid-template-columns: 1fr 1fr 1fr 1fr 1fr;">
-          <td><span>REASON</span><br> {{response.reason}}</td>
-          <td><span>TYPE</span> <br>{{response.type}}</td>
-          <td><span>COMMENT</span> <br>{{response.comment}}</td>
-          <td><span>REQUESTED ON</span><br> {{response.request}}</td>
-          <td><span>DOWNLOAD PDF</span> <br><button (click)="generatePDF(response.bonafide_id)" *ngIf="response.status == 'YYY' || response.status == 'yyy'">Download PDF</button>
-            <a  *ngIf="response.status != 'YYY' && response.status != 'yyy'">PDF Not ready</a>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Bonafide for reason {{response.reason}} of type {{response.type}}
+    </mat-panel-title>
+    <mat-panel-description>
+      Bonafide requested on {{response.request}}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <p>
 
-            <div [id]="'qr' + response.bonafide_id" style="position: absolute;top:-100vh;">
-             <qrcode [qrdata]="'name'" size="0"></qrcode>
-           </div></td>
-        </tr>
-         </mat-panel-title>
-         <mat-panel-description></mat-panel-description>
-     </mat-expansion-panel-header>
+    <mat-vertical-stepper>
+      <mat-step label="Tutor"  [color]="(response.status[0]=='Y'||response.status[0]=='y')?'primary':'warn'">
+      </mat-step>
+      <mat-step label="HOD"  [color]="(response.status[1]=='Y'||response.status[1]=='y')?'primary':'warn'">
+      </mat-step>
+      <mat-step label="Principal" [color]="(response.status[2]=='Y'||response.status[2]=='y')?'primary':'warn'">
+      </mat-step>
+    </mat-vertical-stepper>
+    <button (click)="generatePDF(response.bonafide_id)" *ngIf="response.status == 'YYY' || response.status == 'yyy'">Download PDF</button>
+       <a  *ngIf="response.status != 'YYY' && response.status != 'yyy'">PDF Not ready</a>
+       <div [id]="'qr' + response.bonafide_id" style="position: absolute;top:-100vh;">
+        <qrcode [qrdata]="'name'" size="0"></qrcode>
+      </div>
 
  </mat-expansion-panel>
+</mat-accordion>
 </div>
 <img
   src="assets/loading.gif"
