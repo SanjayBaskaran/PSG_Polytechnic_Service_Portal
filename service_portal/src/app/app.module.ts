@@ -40,6 +40,9 @@ import { InsertstudentComponent } from './admin/stud/insertstudent/insertstudent
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,7 +81,10 @@ import { MatStepperModule } from '@angular/material/stepper';
     QRCodeModule,
     BrowserAnimationsModule,
     MatExpansionModule,
-    MatStepperModule
+    MatStepperModule,
+    MatCardModule,
+    MatButtonModule,
+    MatListModule
   ],
   providers: [UserDataService,{provide:HTTP_INTERCEPTORS,useClass:TokenHeaderInterceptorService,multi:true},BonafideService],
   bootstrap: [AppComponent,]

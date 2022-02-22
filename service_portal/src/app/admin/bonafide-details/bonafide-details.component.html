@@ -14,32 +14,35 @@
     </div>
     <div>
         <div class="container">
-            <div class="item" *ngFor="let bonafide of bonafideInfo;">
-                <div class="card">
-                    <div>
-                        <h4><b>Roll No: {{bonafide.rno}}</b></h4>
-                        <p>
-                            Bonafide ID: {{bonafide.bonafide_id}}
-                        </p>
-                        <p>
-                            Type: {{bonafide.type}}
-                        </p>
-                        <p>
-                            Reason: {{bonafide.reason}}
-                        </p>
-                        <p>
-                            Request: {{bonafide.request}}
-                        </p>
-                        <p>
-                            Issue Date{{bonafide.issue}}
-                        </p>
-                        <p>
-                            Status: {{bonafide.status}}
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+          <mat-card *ngFor="let bonafide of bonafideInfo;">
+            <mat-card-header>
+            <mat-card-title>Roll No: {{bonafide.rno}}</mat-card-title>
+            <mat-card-subtitle>Bonafide ID: {{bonafide.bonafide_id}}</mat-card-subtitle>
+          </mat-card-header>
+            <mat-card-content>
+              <mat-list >
+                  <mat-list-item>
+                    Type: {{bonafide.type}}
+                  </mat-list-item>
+                  <mat-list-item>
+                    Reason: {{bonafide.reason}}
+                  </mat-list-item>
+                  <mat-list-item>
+                    Request: {{bonafide.request}}
+                  </mat-list-item>
+                  <mat-list-item>
+                    Issue Date{{bonafide.issue}}
+                  </mat-list-item>
+                  <mat-list-item>
+                    Status: {{bonafide.status}}
+                  </mat-list-item>
+              </mat-list>
+            </mat-card-content>
+            <mat-card-actions align="end">
+              <button mat-raised-button color="primary">Like</button>
+              <button mat-raised-button color="primary">SHARE</button>
+            </mat-card-actions>
+          </mat-card>
     </div>
 </div>
 
