@@ -27,17 +27,17 @@
     }
     .content{
         @media (max-width:800px) {
-          border-top-left-radius: 3rem;
+          border-top-left-radius: 1rem;
           border-bottom-left-radius: 0rem;
-          border-top-right-radius: 3rem;
+          border-top-right-radius: 1rem;
           box-shadow: 10px -15px 15px rgba($color: #032138, $alpha: 0.35),
                 10px -30px 10px rgba($color: #032138, $alpha: 0.25);
         }
         flex: 1800px;
         box-shadow: -15px 10px 15px rgba($color: #032138, $alpha: 0.35),
                 -15px 10px 10px rgba($color: #032138, $alpha: 0.25);
-        border-top-left-radius: 3rem;
-        border-bottom-left-radius: 3rem;
+        border-top-left-radius: 1rem;
+        border-bottom-left-radius: 1rem;
         position: relative;
         width: 100%;
         height: auto;
