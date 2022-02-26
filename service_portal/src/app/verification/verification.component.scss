@@ -1,0 +1,25 @@
+div{
+  padding-top: 1rem;
+  text-align: center;
+  div{
+    img{
+      width: 80px;
+      height: 100px;
+    }
+  }
+  div:nth-child(2){
+    text-align: center;
+    #stud{
+      width: 250px;
+      height: 250px;
+      padding: 0%;
+      object-fit: cover;
+    }
+  }
+  p{
+    span{
+      font-weight: bold;
+    }
+  }
+
+}

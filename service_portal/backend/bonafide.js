@@ -140,11 +140,15 @@ router.get("/history", (req, res, next) => {
   });
 });
 router.post("/verify",(req,res)=>{
-  let query="SELECT * FROM bonafide WHERE bonafide_id="+req.bonafideId+";";
+  // console.log(req.body);
+  let query="SELECT bonafide.request,student.stud_name,student.photo,student.rno FROM bonafide JOIN student ON bonafide.rno=student.rno WHERE bonafide_id="+req.body.bonafideId+";";
+  console.log(query);
   con.query(query,(err,result,fields)=>{
     if (err) throw err;
+    console.log();
     if(result.length==1){
-      res.json(data);
+      res.json(result[0]);
+      console.log(result[0]);
     }
     else{
       res.json({message:"Invalid Bonafide"});
