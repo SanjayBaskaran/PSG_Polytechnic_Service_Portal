@@ -43,6 +43,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,7 +85,8 @@ import { MatListModule } from '@angular/material/list';
     MatStepperModule,
     MatCardModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    MatIconModule
   ],
   providers: [UserDataService,{provide:HTTP_INTERCEPTORS,useClass:TokenHeaderInterceptorService,multi:true},BonafideService],
   bootstrap: [AppComponent,]

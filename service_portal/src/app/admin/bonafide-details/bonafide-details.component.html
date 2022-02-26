@@ -38,9 +38,16 @@
                   </mat-list-item>
               </mat-list>
             </mat-card-content>
-            <mat-card-actions align="end">
-              <button mat-raised-button color="primary">Like</button>
-              <button mat-raised-button color="primary">SHARE</button>
+
+            <mat-card-actions align="end" *ngIf="bonafide.status!='yyy'&&bonafide.status!='YYY'&&bonafide.status[2]!='R'">
+              <button mat-raised-button color="accent" (click)="accept(bonafide.bonafide_id,bonafide.status[0]+bonafide.status[1]+'Y')"><mat-icon class="mat-18">check</mat-icon>Accept</button>
+              <button mat-raised-button color="warn" (click)="accept(bonafide.bonafide_id,bonafide.status[0]+bonafide.status[1]+'R')"><mat-icon class="mat-18">close</mat-icon>Reject</button>
+            </mat-card-actions>
+            <mat-card-actions align="end" *ngIf="bonafide.status[2]=='R'">
+              <button mat-raised-button style="background-color: red;color: white;cursor:no-drop;" disabled>Rejected</button>
+            </mat-card-actions>
+            <mat-card-actions align="end" *ngIf="bonafide.status=='yyy'||bonafide.status=='YYY'">
+              <button mat-raised-button color="warn" disabled>Delete</button>
             </mat-card-actions>
           </mat-card>
     </div>

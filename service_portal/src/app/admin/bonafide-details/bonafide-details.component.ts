@@ -1,3 +1,4 @@
+import { BonafideService } from './../../bonafide.service';
 import { AdminService } from './../../admin.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class BonafideDetailsComponent implements OnInit {
   bonafideInfo:any;
 
-  constructor(private admindata:AdminService,private router:Router) { }
+  constructor(private admindata:AdminService,private router:Router,private bonafide:BonafideService) { }
 
   ngOnInit(): void {
     this.admindata.bonafide().subscribe(
@@ -21,5 +22,13 @@ export class BonafideDetailsComponent implements OnInit {
         this.router.navigate(['adminLogin']);
       }
     );
+  }
+  accept(bonafide_id:number,bonnafide_status:string){
+    this.bonafide.accept(bonafide_id,bonnafide_status).subscribe((data)=>{
+      let currentUrl = this.router.url;
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigate([currentUrl]);
+      });
+    });
   }
 }
