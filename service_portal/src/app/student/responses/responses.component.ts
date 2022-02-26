@@ -12,6 +12,7 @@ import { UserDataService } from 'src/app/user-data.service';
 })
 export class ResponsesComponent implements OnInit {
   studentBio:any;
+  info:any;
   responses:any;
   loading:boolean=true;
   constructor(private userdata:UserDataService,private router:Router,private bonafide:BonafideService) { }
@@ -24,6 +25,10 @@ export class ResponsesComponent implements OnInit {
           responses=>{
             this.responses=responses;
             this.loading=false;
+            this.userdata.generateBonafide(this.studentBio.rno).subscribe((data:any)=>{
+              this.info=data;
+              console.log(this.info);
+            });
            },
           err=>{
             alert("can't fetch responses");
@@ -35,9 +40,10 @@ export class ResponsesComponent implements OnInit {
          this.router.navigate(["/login"])
          }
     )
+   
   }
   generatePDF(bonafideId:number){
-    console.log(this.studentBio);
+    //console.log(this.studentBio);
     let doc=new jsPDF('p','mm','a4');
     doc.setFontSize(20);//font size
     doc.setFont('times');//font style
@@ -60,17 +66,17 @@ export class ResponsesComponent implements OnInit {
 
     doc.text('is a bonafide student of PSG Polytechnic College, Coimbatore ',75,80);
     doc.text('pursuing Diploma in ',15,90);
-    doc.text('dept',60,90);
+    doc.text(this.info.programme,60,90);
 
-    doc.text('currently in the',110,90);
-    doc.text('year',145,90);
+    doc.text('currently in the',90,90);
+    doc.text('academic year ',130,90);
 
-    doc.text('year of',165,90);
-    doc.text('sem',182,90);
+    doc.text('2022',170,90);
+    doc.text('in '+this.info.duration,182,90);
 
     doc.text('semester.',15,100);
     doc.text('This certificate is issued for the purpose of ',35,100);
-    doc.text('purpose',121,100);
+    doc.text('scholarship',121,100);
     doc.text('.',152,100);
 
     doc.text('DATE: ',15,130);

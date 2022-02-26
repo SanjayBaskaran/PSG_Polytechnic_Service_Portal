@@ -21,6 +21,7 @@ export class StudentProfileComponent implements OnInit,OnDestroy {
     this.userData.authCheck().subscribe(
       (data:any)=>{
         this.studentbio = data;
+        console.log(this.studentbio);
         let TYPED_ARRAY = new Uint8Array(data.photo.data);
         const STRING_CHAR = TYPED_ARRAY.reduce((data, byte)=> {
           return data + String.fromCharCode(byte);

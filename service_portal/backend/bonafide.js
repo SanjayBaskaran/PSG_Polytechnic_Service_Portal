@@ -139,6 +139,23 @@ router.get("/history", (req, res, next) => {
     }
   });
 });
+
+router.post("/generateBonafide",(req,res)=>{
+  let query =
+    "SELECT * FROM student join dept on student.dept_id=dept.dept_id join programme on student.programme_name=programme.programme_name WHERE rno='" +req.body.rno +"';";
+    console.log(query);
+    con.query(query,(err,result,fields)=>{
+      if(err) throw err;
+      if(result.length==1){
+        res.json(result[0]);
+        console.log(result[0]);
+      }
+      else{
+        res.json({message:"Invalid User"});
+      }
+    });
+});
+
 router.post("/verify",(req,res)=>{
   // console.log(req.body);
   let query="SELECT bonafide.request,student.stud_name,student.photo,student.rno FROM bonafide JOIN student ON bonafide.rno=student.rno WHERE bonafide_id="+req.body.bonafideId+";";

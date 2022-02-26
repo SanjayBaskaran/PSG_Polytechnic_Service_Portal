@@ -33,6 +33,9 @@ export class UserDataService {
   studentBio(){
     return this.http.get("http://localhost:3000/api/studentbio");
   }
+  generateBonafide(rno:string){
+    return this.http.post("http://localhost:3000/api/bonafide/generateBonafide",{rno:rno});
+  }
   logout(){
     localStorage.removeItem("token");
   }
