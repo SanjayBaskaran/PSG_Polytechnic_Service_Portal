@@ -44,6 +44,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { VerificationComponent } from './verification/verification.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +73,7 @@ import { MatIconModule } from '@angular/material/icon';
     BatchComponent,
     BonafideDetailsComponent,
     InsertstudentComponent,
+    VerificationComponent,
   ],
   imports: [
     BrowserModule,

@@ -23,4 +23,7 @@ export class BonafideService {
   accept(bonafideId:number,status:string){
     return this.http.post('http://localhost:3000/api/bonafide/accept',{bonafideId:bonafideId,status:status});
   }
+  verify(bonafideId:string){
+    return this.http.post('http://localhost:3000/api/verify',{bonafideId:+bonafideId});
+  }
 }

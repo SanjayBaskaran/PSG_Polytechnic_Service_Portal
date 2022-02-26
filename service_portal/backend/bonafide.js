@@ -139,4 +139,16 @@ router.get("/history", (req, res, next) => {
     }
   });
 });
+router.post("/verify",(req,res)=>{
+  let query="SELECT * FROM bonafide WHERE bonafide_id="+req.bonafideId+";";
+  con.query(query,(err,result,fields)=>{
+    if (err) throw err;
+    if(result.length==1){
+      res.json(data);
+    }
+    else{
+      res.json({message:"Invalid Bonafide"});
+    }
+  });
+})
 module.exports = router;

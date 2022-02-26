@@ -22,7 +22,7 @@
     <button (click)="generatePDF(response.bonafide_id)" *ngIf="response.status == 'YYY' || response.status == 'yyy'">Download PDF</button>
        <a  *ngIf="response.status != 'YYY' && response.status != 'yyy'">PDF Not ready</a>
        <div [id]="'qr' + response.bonafide_id" style="position: absolute;top:-100vh;">
-        <qrcode [qrdata]="'name'" size="0"></qrcode>
+        <qrcode [qrdata]="'http://localhost:4200/response?bonafide_id='+response.bonafide_id" size="0"></qrcode>
       </div>
 
  </mat-expansion-panel>

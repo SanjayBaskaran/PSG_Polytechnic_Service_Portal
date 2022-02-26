@@ -1,3 +1,4 @@
+import { VerificationComponent } from './verification/verification.component';
 import { BonafideDetailsComponent } from './admin/bonafide-details/bonafide-details.component';
 import { BatchComponent } from './admin/batch/batch.component';
 import { ProgrammeComponent } from './admin/programme/programme.component';
@@ -25,6 +26,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { StudentDetailsComponent } from './teacher/student-bio/student-details/student-details.component';
 
 const routes: Routes = [
+  {path:'response',component:VerificationComponent},
   {path:'adminLogin',component:AdminLoginComponent},
   {path:'admin',component:AdminComponent,canActivate:[AuthGuard],children:[
     {path:'student',component:StudComponent},
