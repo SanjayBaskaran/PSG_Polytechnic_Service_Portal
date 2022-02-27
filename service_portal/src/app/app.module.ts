@@ -44,6 +44,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
 import { VerificationComponent } from './verification/verification.component';
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { VerificationComponent } from './verification/verification.component';
     InsertstudentComponent,
     VerificationComponent,
   ],
+  entryComponents:[StudentDetailsComponent],
   imports: [
     BrowserModule,
     // RouterModule.forRoot(routes)
@@ -88,7 +90,8 @@ import { VerificationComponent } from './verification/verification.component';
     MatCardModule,
     MatButtonModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
   ],
   providers: [UserDataService,{provide:HTTP_INTERCEPTORS,useClass:TokenHeaderInterceptorService,multi:true},BonafideService],
   bootstrap: [AppComponent,]

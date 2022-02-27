@@ -1,8 +1,10 @@
+import { StudentDetailsComponent } from './student-details/student-details.component';
 import { DomSanitizer } from '@angular/platform-browser';
 import { UserDataService } from 'src/app/user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CurrentStudentService } from 'src/app/current-student.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-student-bio',
@@ -20,7 +22,8 @@ export class StudentBioComponent implements OnInit {
     private userdata: UserDataService,
     private router: Router,
     private currStudent: CurrentStudentService,
-    private domsanitizer: DomSanitizer
+    private domsanitizer: DomSanitizer,
+    private dialog:MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -88,6 +91,9 @@ export class StudentBioComponent implements OnInit {
   studentBio(dept:string,programme:string,batch:string,index:number) {
     console.log(this.studentX[dept][programme][batch][index]);
     this.currStudent.student = this.studentX[dept][programme][batch][index];
-    this.router.navigate(['teacher/studentdetails']);
+    this.dialog.open(StudentDetailsComponent,{
+      height: '600px',
+      width: '600px',
+    });
   }
 }
