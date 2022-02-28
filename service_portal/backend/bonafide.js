@@ -158,7 +158,7 @@ router.post("/generateBonafide",(req,res)=>{
 
 router.post("/verify",(req,res)=>{
   // console.log(req.body);
-  let query="SELECT bonafide.request,student.stud_name,student.photo,student.rno FROM bonafide JOIN student ON bonafide.rno=student.rno WHERE bonafide_id="+req.body.bonafideId+";";
+  let query="SELECT bonafide.request,student.stud_name,student.photo,student.rno FROM bonafide JOIN student ON bonafide.rno=student.rno WHERE bonafide_id="+req.body.bonafideId+" and (bonafide.status='YYY' or bonafide.status='yyy');";
   console.log(query);
   con.query(query,(err,result,fields)=>{
     if (err) throw err;
