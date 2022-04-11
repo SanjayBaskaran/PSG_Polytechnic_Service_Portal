@@ -19,7 +19,7 @@ export class PendingComponent implements OnInit {
       this.loading=false;
       this.pendingRequests=data.result;
       this.teacherDesign = data.designation;
-      console.log(data);
+      console.log(data.designation);
     },err=>{
       this.router.navigate(['login/Teacher']);
 
