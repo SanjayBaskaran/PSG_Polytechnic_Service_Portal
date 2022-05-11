@@ -1,20 +1,76 @@
-<div class="body">
-    <div class="container">
-        <div class="logo">
-            <img src="assets/logo.png" alt="">
+<div style="background-color: #004a9f;display: flex;align-items: center;justify-content: center;height: 100vh;">
+<div fxLayout="row" fxLayoutAlign="center center" class="login-main">
+  <mat-card>
+    <mat-tab-group dynamicHeight>
+      <mat-tab label="Student">
+        <div class="example-large-box">
+          <form (ngSubmit)="onSubmit()" #f="ngForm">
+            <mat-card-header>
+              <mat-card-title>Student Login</mat-card-title>
+            </mat-card-header>
+            <mat-card-content fxLayout="column">
+              <mat-form-field>
+                <input
+                  [ngModel]
+                  #user="ngModel"
+                  matInput
+                  placeholder="UserName"
+                  name="username"
+                />
+              </mat-form-field>
+              <mat-form-field>
+                <input
+                  [ngModel]
+                  #pass="ngModel"
+                  type="password"
+                  matInput
+                  placeholder="password"
+                  name="password"
+                />
+              </mat-form-field>
+              <button mat-raised-button color="primary" type="submit">
+                Login
+              </button>
+            </mat-card-content>
+          </form>
         </div>
-        <div class="content">
-            <div class="nav">
-                <ul>
-                    <li><a routerLink="/login" routerLinkActive="active_tab" [routerLinkActiveOptions]="{exact:true}"><div>STUDENT</div></a></li>
-                    <li>|</li>
-                    <li><a routerLink="teacher" routerLinkActive="active_tab"><div>TEACHER</div></a></li>
-                </ul>
-            </div>
-            <div class="form">
-                <router-outlet></router-outlet>
-            </div>
+      </mat-tab>
+      <mat-tab label="Teacher">
+        <div class="example-large-box">
+          <div class="example-large-box">
+            <form (ngSubmit)="onSubmit1()" #f1="ngForm">
+              <mat-card-header>
+                <mat-card-title>Staff Login</mat-card-title>
+              </mat-card-header>
+              <mat-card-content fxLayout="column">
+                <mat-form-field>
+                  <input
+                    [ngModel]
+                    #user="ngModel"
+                    matInput
+                    placeholder="UserName"
+                    name="staff_id"
+                  />
+                </mat-form-field>
+                <mat-form-field>
+                  <input
+                    [ngModel]
+                    #pass="ngModel"
+                    type="password"
+                    name="password"
+                    matInput
+                    placeholder="password"
+                  />
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit">
+                  Login
+                </button>
+              </mat-card-content>
+            </form>
+          </div>
         </div>
-    </div>
-
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+</div>
 </div>

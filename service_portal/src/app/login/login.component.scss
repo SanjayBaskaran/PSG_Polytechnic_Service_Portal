@@ -1,77 +1,27 @@
-.body{
-    background-color: #058ed9;
-    width: 100vw;
-    height: 100vh;
-    margin: 0%;
-    border: 0%;
-    display: flex;
-    align-items: center;
-
-    justify-content: center;
-    .container{
-      @media (max-width:900px) {
-        width: 85vw;
-        height: 90vh;
-        min-height: 90vh;
-        max-height: 90vh;
-        flex-direction: column;
-      }
-        width: 900px;
-        height: 450px;
-        min-height: 450px;
-        max-height: 450px;
-        background-color: white;
-        border-radius: 3rem;
-        display:flex;
-        position: relative;
-        justify-content: center;
-        align-items: center;
-        .logo{
-          @media (max-width:900px) {
-            flex: 2;
-          }
-            padding: 10%;
-            flex: 4;
-            position: relative;
-            img{
-              @media (max-width:900px) {
-                width: 150px;
-              }
-                position:relative;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 200px;
-                height: auto;
-            }
-        }
-        .content{
-          position: relative;
-          margin-top: 5%;
-            padding: 5%;
-            flex: 5;
-            align-self: center;
-            .nav{
-                ul{
-                    list-style: none;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-around;
-                    align-items: center;
-                    li{
-                        a{
-                            font-size: 1.4rem;
-                            color: black;
-                            text-decoration: none;
-                        }
-                    }
-                }
-            }
-            .form{
-
-            }
-        }
-    }
+mat-card {
+  position:relative;
+  top: 100%;
+  max-width: 500px;
+  margin: 2em auto;
+  text-align: center;
 }
-.active_tab div{
-    text-decoration: underline .7rem solid #058ed9;
+mat-form-field {
+  display: block;
+  width: 400px;
+}
+.example-small-box, .example-large-box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 16px;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+
+.example-large-box {
+  height: 400px;
+  width: 400px;
 }

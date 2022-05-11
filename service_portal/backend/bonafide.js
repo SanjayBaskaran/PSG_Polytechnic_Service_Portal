@@ -15,8 +15,8 @@ router.post("/request", (req, res, next) => {
   }
 }, (req, res) => {
   let curr = new Date();
-
-  let query = "INSERT INTO bonafide (rno,batch_id,type,reason,status,request,issue,comment) values('" + req.body.rno + "','" + req.body.batch_id + "','" + req.body.bonafide_type + "','" + req.body.bonafide_reason + "','NNN'" + ",STR_TO_DATE('" + "" + curr.getDate() + "/" + curr.getMonth() + 1 + "/" + curr.getFullYear() + "','%d/%m/%Y'),NULL,'" + req.body.comment + "');";
+  console.log(curr.getDate() + "/" + (curr.getMonth()+1) + "/" + curr.getFullYear());
+  let query = "INSERT INTO bonafide (rno,batch_id,type,reason,status,request,issue,comment) values('" + req.body.rno + "','" + req.body.batch_id + "','" + req.body.bonafide_type + "','" + req.body.bonafide_reason + "','NNN'" + ",STR_TO_DATE('" + "" + curr.getDate() + "/" + (curr.getMonth()+1) + "/" + curr.getFullYear() + "','%d/%m/%Y'),NULL,'" + req.body.comment + "');";
   console.log(query);
   con.query(query, function (err, result, fields) {
     if (err) throw err;
@@ -35,10 +35,11 @@ router.post("/responses", (req, res, next) => {
     res.status(401).json({ "Auth": false });
   }
 }, (req, res) => {
+  console.log("asd");
   let query = "SELECT * FROM bonafide WHERE rno='" + req.userData + "' ORDER BY request DESC;";
   con.query(query, function (err, result, fields) {
     if (err) throw err;
-    if (result.length > 0) {
+    if (result.length >= 0) {
       res.json(result);
     }
   })

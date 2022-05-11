@@ -6,8 +6,8 @@ var db_config = {
   timeout: 60 * 60 * 1000,
   host: "localhost",
   user: "root",
-  password: "root",
-  database: "polytech",
+  password: "",
+  database: "polytech1",
   port: 3306,
 };
 var connection;

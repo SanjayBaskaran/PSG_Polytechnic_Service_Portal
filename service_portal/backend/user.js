@@ -11,6 +11,7 @@ router.post("/student", (req, res) => {
     "' and stud_pass='" +
     req.body.password +
     "';";
+    console.log(query);
   con.query(query, function (err, result, fields) {
     if (err) throw err;
     if (result.length > 0) {
@@ -62,6 +63,7 @@ router.post("/teacher", (req, res) => {
     "' and password='" +
     req.body.password +
     "';";
+    console.log(query);
   con.query(query, function (err, result, fields) {
     if (err) throw err;
     if (result.length > 0) {

@@ -1,3 +1,4 @@
+import { AngularMaterialModule } from './angular-material.module';
 import { StudentDetailsComponent } from './teacher/student-bio/student-details/student-details.component';
 import { TokenHeaderInterceptorService } from './token-header-interceptor.service';
 import { BonafideService } from "./bonafide.service";
@@ -85,13 +86,7 @@ import { VerificationComponent } from './verification/verification.component';
     HttpClientModule,
     QRCodeModule,
     BrowserAnimationsModule,
-    MatExpansionModule,
-    MatStepperModule,
-    MatCardModule,
-    MatButtonModule,
-    MatListModule,
-    MatIconModule,
-    MatDialogModule
+    AngularMaterialModule
   ],
   providers: [UserDataService,{provide:HTTP_INTERCEPTORS,useClass:TokenHeaderInterceptorService,multi:true},BonafideService],
   bootstrap: [AppComponent,]
